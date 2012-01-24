@@ -6,8 +6,6 @@ DESCRIPTION
 This pulgin implements a basic but fully functional CRM (Customer Relations Management) system using AppFlower technology.
 It is provided mainly as a demonstration and also as a foundation you can easily extend.
 
-Visit http://www.github.com/appflower/afCrmPlugin for updates and news.
-
 INSTALLATION
 
 - CD to your AppFlower project directory
