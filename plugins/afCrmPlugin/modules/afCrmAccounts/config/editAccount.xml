@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<i:view xmlns:i="http://www.appflower.com/schema/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="edit" xsi:schemaLocation="http://www.appflower.com/schema/appflower.xsd">
+    <i:title><![CDATA[Account Details]]></i:title>
+    <i:datasource type="orm">
+        <i:class>afCrmAccountPeer</i:class>
+        <i:method name="retrieveByPk">
+            <i:param name="id">{id}</i:param>
+        </i:method>
+    </i:datasource>
+    <i:fields url="afCrmAccounts/editAccount?id={id}">
+        <i:field label="Name" name="name" value="{name}">
+            <i:help>Company name</i:help>
+            <i:validator name="immValidatorRequired"/>
+        </i:field>
+        <i:field label="City" name="city" value="{city}">
+            <i:help>City of origin</i:help>
+            <i:validator name="immValidatorRequired"/>
+        </i:field>
+        <i:field label="Zipcode" name="zipcode" value="{zipcode}">
+            <i:help>Zipcode</i:help>
+            <i:validator name="immValidatorRequired"/>
+        </i:field>
+        <i:field label="Address" name="address_line1" value="{address_line1}">
+            <i:help>Street address</i:help>
+            <i:validator name="immValidatorRequired"/>
+        </i:field>
+        <i:field label="Address" name="address_line2" value="{address_line2}">
+            <i:help>Street address continued</i:help>
+        </i:field>
+        <i:field label="State" name="state" value="{state}">
+            <i:help>Name of the state</i:help>
+        </i:field>
+        <i:field label="Country" name="country" value="{country}">
+            <i:help>Country of origin</i:help>
+            <i:validator name="immValidatorRequired"/>
+        </i:field>
+        <i:field label="Phone" name="phone" value="{phone}">
+            <i:help>Land line number</i:help>
+        </i:field>
+        <i:field label="Fax" name="fax" value="{fax}">
+            <i:help>Telefax number</i:help>
+        </i:field>
+        <i:field label="E-mail" name="email" value="{email}">
+            <i:help>A valid e-mail address</i:help>
+        </i:field>
+        <i:field label="Website" name="website" value="{website}">
+            <i:help>Website URL</i:help>
+        </i:field>
+        <i:field label="Description" name="description" type="textarea" value="{description}">
+            <i:help>A brief description</i:help>
+        </i:field>
+    </i:fields>
+    <i:grouping>
+        <i:set columns="2" float="true" title="Company Information">
+            <i:ref to="name"/>
+            <i:ref break="true" to="city"/>
+            <i:ref break="false" to="country"/>
+            <i:ref break="true" to="zipcode"/>
+            <i:ref to="address_line1"/>
+            <i:ref break="true" to="address_line2"/>
+            <i:ref to="state"/>
+            <i:ref break="true" to="phone"/>
+            <i:ref break="false" to="fax"/>
+            <i:ref break="true" to="email"/>
+            <i:ref break="false" to="website"/>
+            <i:ref to="description"/>
+        </i:set>
+    </i:grouping>
+</i:view>

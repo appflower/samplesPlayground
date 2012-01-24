@@ -1,0 +1,62 @@
+propel:
+  _attributes:
+    package: plugins.afCrmPlugin.lib.model
+  afcrm_contact:
+    _attributes: { phpName: afCrmContact }
+    id: { type: integer, autoIncrement: true, required: true, size: 11 }
+    account_id: { type: integer, foreignTable: afcrm_account, foreignReference: id, onDelete: cascade }
+    first_name: { type: varchar, primaryString: true }
+    last_name: { type: varchar }
+    title: { type: varchar }
+    email: { type: varchar }
+    phone_work: { type: varchar }
+    phone_mobile: { type: varchar }
+    skype: { type: varchar }
+    msn: { type: varchar }
+    address_line1: { type: varchar }
+    address_line2: { type: varchar }
+    city: { type: varchar }
+    zipcode: { type: varchar }
+    state: { type: varchar }
+    country: { type: varchar }
+  afcrm_opportunity:
+    _attributes: { phpName: afCrmOpportunity }
+    id: { type: integer, autoIncrement: true, required: true, size: 11 }
+    name: { type: varchar, primaryString: true }
+    amount: { type: varchar }
+    account_id: { type: integer, foreignTable: afcrm_account, foreignReference: id, onDelete: cascade }
+    assigned_to: { type: integer, foreignTable: afcrm_contact, foreignReference: id, onDelete: cascade }
+    description: { type: longvarchar }
+    expected_closedate: { type: timestamp }
+    created_by: { type: integer, foreignTable: af_guard_user, foreignReference: id, onDelete: cascade }
+    created_at: { type: timestamp }
+  afcrm_status:
+    _attributes: { phpName: afCrmStatus }
+    id: { type: integer, autoIncrement: true, required: true, size: 11 }
+    name: { type: varchar, primaryString: true }
+    description: { type: longvarchar }
+  afcrm_activity:
+    _attributes: { phpName: afCrmActivity }
+    id: { type: integer, autoIncrement: true, required: true, size: 11 }
+    subject: { type: varchar, primaryString: true }
+    account_id: { type: integer, foreignTable: afcrm_account, foreignReference: id, onDelete: cascade }
+    contact_id: { type: integer, foreignTable: afcrm_contact, foreignReference: id, onDelete: cascade }
+    status_id: { type: integer, foreignTable: afcrm_status, foreignReference: id, onDelete: cascade }
+    created_by: { type: integer, foreignTable: af_guard_user, foreignReference: id, onDelete: cascade }
+    description: { type: longvarchar }
+    due_at: { type: timestamp }
+  afcrm_account:
+    _attributes: { phpName: afCrmAccount }
+    id: { type: integer, autoIncrement: true, required: true, size: 11 }
+    name: { type: varchar, primaryString: true }
+    city: { type: varchar }
+    zipcode: { type: varchar }
+    address_line1: { type: varchar }
+    address_line2: { type: varchar }
+    state: { type: varchar }
+    country: { type: varchar }
+    phone: { type: varchar }
+    fax: { type: varchar }
+    email: { type: varchar }
+    website: { type: varchar }
+    description: { type: longvarchar }

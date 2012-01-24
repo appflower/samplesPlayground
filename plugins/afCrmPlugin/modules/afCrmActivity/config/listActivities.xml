@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<i:view xmlns:i="http://www.appflower.com/schema/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="list" xsi:schemaLocation="http://www.appflower.com/schema/appflower.xsd">
+    <i:title><![CDATA[List of Activities]]></i:title>
+    <i:datasource modelName="afCrmActivity" type="orm">
+        <i:class>ModelCriteriaFetcher</i:class>
+        <i:method name="getDataForList">
+            <i:param name="modelName">afCrmActivity</i:param>
+        </i:method>
+    </i:datasource>
+    <i:fields remoteSort="true">
+        <i:column label="No." name="id"/>
+        <i:column filter="[type:string]" label="Subject" name="subject"/>
+        <i:column filter="[type:string]" label="Account" name="account_id"/>
+        <i:column filter="[type:string]" label="Contact" name="contact_id"/>
+        <i:column filter="[type:string]" label="Status" name="status_id"/>
+        <i:column filter="[type:string]" label="Created by" name="created_by"/>
+    </i:fields>
+    <i:rowactions>
+        <i:action iconCls="icon-edit" name="edit" url="/afCrmActivity/editActivity"/>
+    </i:rowactions>
+    <i:actions>
+        <i:action iconCls="icon-plus" name="New Activity" url="/afCrmActivity/editActivity"/>
+    </i:actions>
+</i:view>

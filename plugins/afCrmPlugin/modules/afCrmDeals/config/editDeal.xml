@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<i:view xmlns:i="http://www.appflower.com/schema/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="edit" xsi:schemaLocation="http://www.appflower.com/schema/appflower.xsd">
+    <i:title><![CDATA[Deal Details]]></i:title>
+    <i:datasource type="orm">
+        <i:class>afCrmOpportunityPeer</i:class>
+        <i:method name="retrieveByPk">
+            <i:param name="id">{id}</i:param>
+        </i:method>
+    </i:datasource>
+    <i:fields url="afCrmDeals/editDeal?id={id}">
+        <i:field label="Name" name="name" value="{name}">
+            <i:help>The name of the opportunity</i:help>
+            <i:validator name="immValidatorRequired"/>
+            <i:validator name="sfValidatorString"/>
+        </i:field>
+        <i:field label="Worth" name="amount" value="{amount}">
+            <i:help>Estimated worth</i:help>
+            <i:validator name="immValidatorRequired"/>
+        </i:field>
+        <i:field label="Client" name="account_id" selected="{account_id}" type="combo">
+            <i:value type="orm">
+                <i:class>ModelCriteriaFetcher</i:class>
+                <i:method name="getDataForComboWidget">
+                    <i:param name="does_not_matter">afCrmAccount</i:param>
+                </i:method>
+            </i:value>
+            <i:help>The related partner</i:help>
+            <i:validator name="immValidatorRequired"/>
+        </i:field>
+        <i:field label="Assigned" name="assigned_to" selected="{assigned_to}" type="combo">
+            <i:value type="orm">
+                <i:class>ModelCriteriaFetcher</i:class>
+                <i:method name="getDataForComboWidget">
+                    <i:param name="does_not_matter">afCrmContact</i:param>
+                </i:method>
+            </i:value>
+            <i:help>The related contact person</i:help>
+            <i:validator name="immValidatorRequired"/>
+        </i:field>
+        <i:field label="Description" name="description" type="textarea" value="{description}">
+            <i:help>A brief description</i:help>
+        </i:field>
+        <i:field label="Due at" name="expected_closedate" type="datetime" value="{expected_closedate}">
+            <i:help>Expiration date</i:help>
+        </i:field>
+        <i:field label="User" name="created_by" selected="{created_by}" type="combo">
+            <i:value type="orm">
+                <i:class>ModelCriteriaFetcher</i:class>
+                <i:method name="getDataForComboWidget">
+                    <i:param name="does_not_matter">afGuardUser</i:param>
+                </i:method>
+            </i:value>
+            <i:help>The user who created the opportunity</i:help>
+            <i:validator name="immValidatorRequired"/>
+        </i:field>
+    </i:fields>
+    <i:grouping title="Deal Information">
+        <i:set title="Deal Information">
+            <i:ref to="name"/>
+            <i:ref to="amount"/>
+            <i:ref to="account_id"/>
+            <i:ref to="created_by"/>
+            <i:ref to="assigned_to"/>
+            <i:ref to="expected_closedate"/>
+            <i:ref to="description"/>
+        </i:set>
+    </i:grouping>
+</i:view>

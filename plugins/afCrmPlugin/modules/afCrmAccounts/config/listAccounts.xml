@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<i:view xmlns:i="http://www.appflower.com/schema/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="list" xsi:schemaLocation="http://www.appflower.com/schema/appflower.xsd">
+    <i:title><![CDATA[List of Accounts]]></i:title>
+    <i:datasource modelName="afCrmAccount" type="orm">
+        <i:class>ModelCriteriaFetcher</i:class>
+        <i:method name="getDataForList">
+            <i:param name="modelName">afCrmAccount</i:param>
+        </i:method>
+    </i:datasource>
+    <i:fields remoteSort="true">
+        <i:column label="No." name="id"/>
+        <i:column filter="[type:string]" label="Account" name="name"/>
+        <i:column label="Phone" name="phone"/>
+        <i:column filter="[type:string]" label="City" name="city"/>
+        <i:column filter="[type:string]" label="Country" name="country"/>
+    </i:fields>
+    <i:rowactions>
+        <i:action iconCls="icon-edit" name="edit" url="/afCrmAccounts/editAccount"/>
+    </i:rowactions>
+    <i:actions>
+        <i:action iconCls="icon-plus" name="New Account" url="/afCrmAccounts/editAccount"/>
+    </i:actions>
+</i:view>
