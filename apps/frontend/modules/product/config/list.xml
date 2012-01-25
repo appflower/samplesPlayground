@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<i:view xmlns:i="http://www.appflower.com/schema/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="list" xsi:schemaLocation="http://www.appflower.com/schema/appflower.xsd">
+    <i:title><![CDATA[list]]></i:title>
+    <i:datasource modelName="product" type="orm">
+        <i:class>ModelCriteriaFetcher</i:class>
+        <i:method name="getDataForList">
+            <i:param name="modelName">product</i:param>
+        </i:method>
+    </i:datasource>
+    <i:fields remoteFilter="true" remoteSort="true">
+        <i:column filter="[type:string,dataIndex:order.name]" label="Name" name="name"/>
+        <i:column filter="[type:numeric,dataIndex:order.price]" label="Price" name="price"/>
+        <i:column filter="[type:numeric,dataIndex:order.quantity]" label="Quantity" name="quantity"/>
+        <i:column label="Image" name="html_image"/>
+    </i:fields>
+    <i:rowactions>
+        <i:action iconCls="icon-edit" name="edit" url="/product/edit"/>
+        <i:action confirm="true" iconCls="icon-delete" name="delete" url="/product/delete"/>
+    </i:rowactions>
+    <i:actions>
+        <i:action iconCls="icon-plus" name="Add new product" popup="false" url="/product/edit"/>
+    </i:actions>
+</i:view>
