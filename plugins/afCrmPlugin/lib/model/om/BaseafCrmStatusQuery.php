@@ -122,7 +122,7 @@ abstract class BaseafCrmStatusQuery extends ModelCriteria
 	{
 		$sql = 'SELECT `ID`, `NAME`, `DESCRIPTION` FROM `afcrm_status` WHERE `ID` = :p0';
 		try {
-			$stmt = $con->prepare($sql);			
+			$stmt = $con->prepare($sql);
 			$stmt->bindValue(':p0', $key, PDO::PARAM_INT);
 			$stmt->execute();
 		} catch (Exception $e) {

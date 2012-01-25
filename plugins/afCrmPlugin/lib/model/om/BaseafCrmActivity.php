@@ -764,28 +764,28 @@ abstract class BaseafCrmActivity extends BaseObject  implements Persistent
 			$stmt = $con->prepare($sql);
 			foreach ($modifiedColumns as $identifier => $columnName) {
 				switch ($columnName) {
-					case '`ID`':						
+					case '`ID`':
 						$stmt->bindValue($identifier, $this->id, PDO::PARAM_INT);
 						break;
-					case '`SUBJECT`':						
+					case '`SUBJECT`':
 						$stmt->bindValue($identifier, $this->subject, PDO::PARAM_STR);
 						break;
-					case '`ACCOUNT_ID`':						
+					case '`ACCOUNT_ID`':
 						$stmt->bindValue($identifier, $this->account_id, PDO::PARAM_INT);
 						break;
-					case '`CONTACT_ID`':						
+					case '`CONTACT_ID`':
 						$stmt->bindValue($identifier, $this->contact_id, PDO::PARAM_INT);
 						break;
-					case '`STATUS_ID`':						
+					case '`STATUS_ID`':
 						$stmt->bindValue($identifier, $this->status_id, PDO::PARAM_INT);
 						break;
-					case '`CREATED_BY`':						
+					case '`CREATED_BY`':
 						$stmt->bindValue($identifier, $this->created_by, PDO::PARAM_INT);
 						break;
-					case '`DESCRIPTION`':						
+					case '`DESCRIPTION`':
 						$stmt->bindValue($identifier, $this->description, PDO::PARAM_STR);
 						break;
-					case '`DUE_AT`':						
+					case '`DUE_AT`':
 						$stmt->bindValue($identifier, $this->due_at, PDO::PARAM_STR);
 						break;
 				}

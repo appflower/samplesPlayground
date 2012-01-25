@@ -1054,52 +1054,52 @@ abstract class BaseafCrmContact extends BaseObject  implements Persistent
 			$stmt = $con->prepare($sql);
 			foreach ($modifiedColumns as $identifier => $columnName) {
 				switch ($columnName) {
-					case '`ID`':						
+					case '`ID`':
 						$stmt->bindValue($identifier, $this->id, PDO::PARAM_INT);
 						break;
-					case '`ACCOUNT_ID`':						
+					case '`ACCOUNT_ID`':
 						$stmt->bindValue($identifier, $this->account_id, PDO::PARAM_INT);
 						break;
-					case '`FIRST_NAME`':						
+					case '`FIRST_NAME`':
 						$stmt->bindValue($identifier, $this->first_name, PDO::PARAM_STR);
 						break;
-					case '`LAST_NAME`':						
+					case '`LAST_NAME`':
 						$stmt->bindValue($identifier, $this->last_name, PDO::PARAM_STR);
 						break;
-					case '`TITLE`':						
+					case '`TITLE`':
 						$stmt->bindValue($identifier, $this->title, PDO::PARAM_STR);
 						break;
-					case '`EMAIL`':						
+					case '`EMAIL`':
 						$stmt->bindValue($identifier, $this->email, PDO::PARAM_STR);
 						break;
-					case '`PHONE_WORK`':						
+					case '`PHONE_WORK`':
 						$stmt->bindValue($identifier, $this->phone_work, PDO::PARAM_STR);
 						break;
-					case '`PHONE_MOBILE`':						
+					case '`PHONE_MOBILE`':
 						$stmt->bindValue($identifier, $this->phone_mobile, PDO::PARAM_STR);
 						break;
-					case '`SKYPE`':						
+					case '`SKYPE`':
 						$stmt->bindValue($identifier, $this->skype, PDO::PARAM_STR);
 						break;
-					case '`MSN`':						
+					case '`MSN`':
 						$stmt->bindValue($identifier, $this->msn, PDO::PARAM_STR);
 						break;
-					case '`ADDRESS_LINE1`':						
+					case '`ADDRESS_LINE1`':
 						$stmt->bindValue($identifier, $this->address_line1, PDO::PARAM_STR);
 						break;
-					case '`ADDRESS_LINE2`':						
+					case '`ADDRESS_LINE2`':
 						$stmt->bindValue($identifier, $this->address_line2, PDO::PARAM_STR);
 						break;
-					case '`CITY`':						
+					case '`CITY`':
 						$stmt->bindValue($identifier, $this->city, PDO::PARAM_STR);
 						break;
-					case '`ZIPCODE`':						
+					case '`ZIPCODE`':
 						$stmt->bindValue($identifier, $this->zipcode, PDO::PARAM_STR);
 						break;
-					case '`STATE`':						
+					case '`STATE`':
 						$stmt->bindValue($identifier, $this->state, PDO::PARAM_STR);
 						break;
-					case '`COUNTRY`':						
+					case '`COUNTRY`':
 						$stmt->bindValue($identifier, $this->country, PDO::PARAM_STR);
 						break;
 				}

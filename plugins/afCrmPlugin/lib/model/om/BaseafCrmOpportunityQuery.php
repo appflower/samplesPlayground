@@ -154,7 +154,7 @@ abstract class BaseafCrmOpportunityQuery extends ModelCriteria
 	{
 		$sql = 'SELECT `ID`, `NAME`, `AMOUNT`, `ACCOUNT_ID`, `ASSIGNED_TO`, `DESCRIPTION`, `EXPECTED_CLOSEDATE`, `CREATED_BY`, `CREATED_AT` FROM `afcrm_opportunity` WHERE `ID` = :p0';
 		try {
-			$stmt = $con->prepare($sql);			
+			$stmt = $con->prepare($sql);
 			$stmt->bindValue(':p0', $key, PDO::PARAM_INT);
 			$stmt->execute();
 		} catch (Exception $e) {

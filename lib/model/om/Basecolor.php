@@ -2,25 +2,25 @@
 
 
 /**
- * Base class that represents a row from the 'afcrm_status' table.
+ * Base class that represents a row from the 'color' table.
  *
  * 
  *
- * @package    propel.generator.plugins.afCrmPlugin.lib.model.om
+ * @package    propel.generator.lib.model.om
  */
-abstract class BaseafCrmStatus extends BaseObject  implements Persistent
+abstract class Basecolor extends BaseObject  implements Persistent
 {
 
 	/**
 	 * Peer class name
 	 */
-	const PEER = 'afCrmStatusPeer';
+	const PEER = 'colorPeer';
 
 	/**
 	 * The Peer class.
 	 * Instance provides a convenient way of calling static methods on a class
 	 * that calling code may not be able to identify.
-	 * @var        afCrmStatusPeer
+	 * @var        colorPeer
 	 */
 	protected static $peer;
 
@@ -37,17 +37,6 @@ abstract class BaseafCrmStatus extends BaseObject  implements Persistent
 	protected $name;
 
 	/**
-	 * The value for the description field.
-	 * @var        string
-	 */
-	protected $description;
-
-	/**
-	 * @var        array afCrmActivity[] Collection to store aggregation of afCrmActivity objects.
-	 */
-	protected $collafCrmActivitys;
-
-	/**
 	 * Flag to prevent endless save loop, if this object is referenced
 	 * by another object which falls in this transaction.
 	 * @var        boolean
@@ -60,12 +49,6 @@ abstract class BaseafCrmStatus extends BaseObject  implements Persistent
 	 * @var        boolean
 	 */
 	protected $alreadyInValidation = false;
-
-	/**
-	 * An array of objects scheduled for deletion.
-	 * @var		array
-	 */
-	protected $afCrmActivitysScheduledForDeletion = null;
 
 	/**
 	 * Get the [id] column value.
@@ -88,20 +71,10 @@ abstract class BaseafCrmStatus extends BaseObject  implements Persistent
 	}
 
 	/**
-	 * Get the [description] column value.
-	 * 
-	 * @return     string
-	 */
-	public function getDescription()
-	{
-		return $this->description;
-	}
-
-	/**
 	 * Set the value of [id] column.
 	 * 
 	 * @param      int $v new value
-	 * @return     afCrmStatus The current object (for fluent API support)
+	 * @return     color The current object (for fluent API support)
 	 */
 	public function setId($v)
 	{
@@ -111,7 +84,7 @@ abstract class BaseafCrmStatus extends BaseObject  implements Persistent
 
 		if ($this->id !== $v) {
 			$this->id = $v;
-			$this->modifiedColumns[] = afCrmStatusPeer::ID;
+			$this->modifiedColumns[] = colorPeer::ID;
 		}
 
 		return $this;
@@ -121,7 +94,7 @@ abstract class BaseafCrmStatus extends BaseObject  implements Persistent
 	 * Set the value of [name] column.
 	 * 
 	 * @param      string $v new value
-	 * @return     afCrmStatus The current object (for fluent API support)
+	 * @return     color The current object (for fluent API support)
 	 */
 	public function setName($v)
 	{
@@ -131,31 +104,11 @@ abstract class BaseafCrmStatus extends BaseObject  implements Persistent
 
 		if ($this->name !== $v) {
 			$this->name = $v;
-			$this->modifiedColumns[] = afCrmStatusPeer::NAME;
+			$this->modifiedColumns[] = colorPeer::NAME;
 		}
 
 		return $this;
 	} // setName()
-
-	/**
-	 * Set the value of [description] column.
-	 * 
-	 * @param      string $v new value
-	 * @return     afCrmStatus The current object (for fluent API support)
-	 */
-	public function setDescription($v)
-	{
-		if ($v !== null) {
-			$v = (string) $v;
-		}
-
-		if ($this->description !== $v) {
-			$this->description = $v;
-			$this->modifiedColumns[] = afCrmStatusPeer::DESCRIPTION;
-		}
-
-		return $this;
-	} // setDescription()
 
 	/**
 	 * Indicates whether the columns in this object are only set to default values.
@@ -191,7 +144,6 @@ abstract class BaseafCrmStatus extends BaseObject  implements Persistent
 
 			$this->id = ($row[$startcol + 0] !== null) ? (int) $row[$startcol + 0] : null;
 			$this->name = ($row[$startcol + 1] !== null) ? (string) $row[$startcol + 1] : null;
-			$this->description = ($row[$startcol + 2] !== null) ? (string) $row[$startcol + 2] : null;
 			$this->resetModified();
 
 			$this->setNew(false);
@@ -200,10 +152,10 @@ abstract class BaseafCrmStatus extends BaseObject  implements Persistent
 				$this->ensureConsistency();
 			}
 
-			return $startcol + 3; // 3 = afCrmStatusPeer::NUM_HYDRATE_COLUMNS.
+			return $startcol + 2; // 2 = colorPeer::NUM_HYDRATE_COLUMNS.
 
 		} catch (Exception $e) {
-			throw new PropelException("Error populating afCrmStatus object", $e);
+			throw new PropelException("Error populating color object", $e);
 		}
 	}
 
@@ -246,13 +198,13 @@ abstract class BaseafCrmStatus extends BaseObject  implements Persistent
 		}
 
 		if ($con === null) {
-			$con = Propel::getConnection(afCrmStatusPeer::DATABASE_NAME, Propel::CONNECTION_READ);
+			$con = Propel::getConnection(colorPeer::DATABASE_NAME, Propel::CONNECTION_READ);
 		}
 
 		// We don't need to alter the object instance pool; we're just modifying this instance
 		// already in the pool.
 
-		$stmt = afCrmStatusPeer::doSelectStmt($this->buildPkeyCriteria(), $con);
+		$stmt = colorPeer::doSelectStmt($this->buildPkeyCriteria(), $con);
 		$row = $stmt->fetch(PDO::FETCH_NUM);
 		$stmt->closeCursor();
 		if (!$row) {
@@ -261,8 +213,6 @@ abstract class BaseafCrmStatus extends BaseObject  implements Persistent
 		$this->hydrate($row, 0, true); // rehydrate
 
 		if ($deep) {  // also de-associate any related objects?
-
-			$this->collafCrmActivitys = null;
 
 		} // if (deep)
 	}
@@ -283,16 +233,16 @@ abstract class BaseafCrmStatus extends BaseObject  implements Persistent
 		}
 
 		if ($con === null) {
-			$con = Propel::getConnection(afCrmStatusPeer::DATABASE_NAME, Propel::CONNECTION_WRITE);
+			$con = Propel::getConnection(colorPeer::DATABASE_NAME, Propel::CONNECTION_WRITE);
 		}
 
 		$con->beginTransaction();
 		try {
-			$deleteQuery = afCrmStatusQuery::create()
+			$deleteQuery = colorQuery::create()
 				->filterByPrimaryKey($this->getPrimaryKey());
 			$ret = $this->preDelete($con);
 			// symfony_behaviors behavior
-			foreach (sfMixer::getCallables('BaseafCrmStatus:delete:pre') as $callable)
+			foreach (sfMixer::getCallables('Basecolor:delete:pre') as $callable)
 			{
 			  if (call_user_func($callable, $this, $con))
 			  {
@@ -305,7 +255,7 @@ abstract class BaseafCrmStatus extends BaseObject  implements Persistent
 				$deleteQuery->delete($con);
 				$this->postDelete($con);
 				// symfony_behaviors behavior
-				foreach (sfMixer::getCallables('BaseafCrmStatus:delete:post') as $callable)
+				foreach (sfMixer::getCallables('Basecolor:delete:post') as $callable)
 				{
 				  call_user_func($callable, $this, $con);
 				}
@@ -341,7 +291,7 @@ abstract class BaseafCrmStatus extends BaseObject  implements Persistent
 		}
 
 		if ($con === null) {
-			$con = Propel::getConnection(afCrmStatusPeer::DATABASE_NAME, Propel::CONNECTION_WRITE);
+			$con = Propel::getConnection(colorPeer::DATABASE_NAME, Propel::CONNECTION_WRITE);
 		}
 
 		$con->beginTransaction();
@@ -349,7 +299,7 @@ abstract class BaseafCrmStatus extends BaseObject  implements Persistent
 		try {
 			$ret = $this->preSave($con);
 			// symfony_behaviors behavior
-			foreach (sfMixer::getCallables('BaseafCrmStatus:save:pre') as $callable)
+			foreach (sfMixer::getCallables('Basecolor:save:pre') as $callable)
 			{
 			  if (is_integer($affectedRows = call_user_func($callable, $this, $con)))
 			  {
@@ -372,12 +322,12 @@ abstract class BaseafCrmStatus extends BaseObject  implements Persistent
 				}
 				$this->postSave($con);
 				// symfony_behaviors behavior
-				foreach (sfMixer::getCallables('BaseafCrmStatus:save:post') as $callable)
+				foreach (sfMixer::getCallables('Basecolor:save:post') as $callable)
 				{
 				  call_user_func($callable, $this, $con, $affectedRows);
 				}
 
-				afCrmStatusPeer::addInstanceToPool($this);
+				colorPeer::addInstanceToPool($this);
 			} else {
 				$affectedRows = 0;
 			}
@@ -417,23 +367,6 @@ abstract class BaseafCrmStatus extends BaseObject  implements Persistent
 				$this->resetModified();
 			}
 
-			if ($this->afCrmActivitysScheduledForDeletion !== null) {
-				if (!$this->afCrmActivitysScheduledForDeletion->isEmpty()) {
-					afCrmActivityQuery::create()
-						->filterByPrimaryKeys($this->afCrmActivitysScheduledForDeletion->getPrimaryKeys(false))
-						->delete($con);
-					$this->afCrmActivitysScheduledForDeletion = null;
-				}
-			}
-
-			if ($this->collafCrmActivitys !== null) {
-				foreach ($this->collafCrmActivitys as $referrerFK) {
-					if (!$referrerFK->isDeleted()) {
-						$affectedRows += $referrerFK->save($con);
-					}
-				}
-			}
-
 			$this->alreadyInSave = false;
 
 		}
@@ -453,24 +386,21 @@ abstract class BaseafCrmStatus extends BaseObject  implements Persistent
 		$modifiedColumns = array();
 		$index = 0;
 
-		$this->modifiedColumns[] = afCrmStatusPeer::ID;
+		$this->modifiedColumns[] = colorPeer::ID;
 		if (null !== $this->id) {
-			throw new PropelException('Cannot insert a value for auto-increment primary key (' . afCrmStatusPeer::ID . ')');
+			throw new PropelException('Cannot insert a value for auto-increment primary key (' . colorPeer::ID . ')');
 		}
 
 		 // check the columns in natural order for more readable SQL queries
-		if ($this->isColumnModified(afCrmStatusPeer::ID)) {
+		if ($this->isColumnModified(colorPeer::ID)) {
 			$modifiedColumns[':p' . $index++]  = '`ID`';
 		}
-		if ($this->isColumnModified(afCrmStatusPeer::NAME)) {
+		if ($this->isColumnModified(colorPeer::NAME)) {
 			$modifiedColumns[':p' . $index++]  = '`NAME`';
-		}
-		if ($this->isColumnModified(afCrmStatusPeer::DESCRIPTION)) {
-			$modifiedColumns[':p' . $index++]  = '`DESCRIPTION`';
 		}
 
 		$sql = sprintf(
-			'INSERT INTO `afcrm_status` (%s) VALUES (%s)',
+			'INSERT INTO `color` (%s) VALUES (%s)',
 			implode(', ', $modifiedColumns),
 			implode(', ', array_keys($modifiedColumns))
 		);
@@ -484,9 +414,6 @@ abstract class BaseafCrmStatus extends BaseObject  implements Persistent
 						break;
 					case '`NAME`':
 						$stmt->bindValue($identifier, $this->name, PDO::PARAM_STR);
-						break;
-					case '`DESCRIPTION`':
-						$stmt->bindValue($identifier, $this->description, PDO::PARAM_STR);
 						break;
 				}
 			}
@@ -580,18 +507,10 @@ abstract class BaseafCrmStatus extends BaseObject  implements Persistent
 			$failureMap = array();
 
 
-			if (($retval = afCrmStatusPeer::doValidate($this, $columns)) !== true) {
+			if (($retval = colorPeer::doValidate($this, $columns)) !== true) {
 				$failureMap = array_merge($failureMap, $retval);
 			}
 
-
-				if ($this->collafCrmActivitys !== null) {
-					foreach ($this->collafCrmActivitys as $referrerFK) {
-						if (!$referrerFK->validate($columns)) {
-							$failureMap = array_merge($failureMap, $referrerFK->getValidationFailures());
-						}
-					}
-				}
 
 
 			$this->alreadyInValidation = false;
@@ -611,7 +530,7 @@ abstract class BaseafCrmStatus extends BaseObject  implements Persistent
 	 */
 	public function getByName($name, $type = BasePeer::TYPE_PHPNAME)
 	{
-		$pos = afCrmStatusPeer::translateFieldName($name, $type, BasePeer::TYPE_NUM);
+		$pos = colorPeer::translateFieldName($name, $type, BasePeer::TYPE_NUM);
 		$field = $this->getByPosition($pos);
 		return $field;
 	}
@@ -632,9 +551,6 @@ abstract class BaseafCrmStatus extends BaseObject  implements Persistent
 			case 1:
 				return $this->getName();
 				break;
-			case 2:
-				return $this->getDescription();
-				break;
 			default:
 				return null;
 				break;
@@ -652,27 +568,20 @@ abstract class BaseafCrmStatus extends BaseObject  implements Persistent
 	 *                    Defaults to BasePeer::TYPE_PHPNAME.
 	 * @param     boolean $includeLazyLoadColumns (optional) Whether to include lazy loaded columns. Defaults to TRUE.
 	 * @param     array $alreadyDumpedObjects List of objects to skip to avoid recursion
-	 * @param     boolean $includeForeignObjects (optional) Whether to include hydrated related objects. Default to FALSE.
 	 *
 	 * @return    array an associative array containing the field names (as keys) and field values
 	 */
-	public function toArray($keyType = BasePeer::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array(), $includeForeignObjects = false)
+	public function toArray($keyType = BasePeer::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array())
 	{
-		if (isset($alreadyDumpedObjects['afCrmStatus'][$this->getPrimaryKey()])) {
+		if (isset($alreadyDumpedObjects['color'][$this->getPrimaryKey()])) {
 			return '*RECURSION*';
 		}
-		$alreadyDumpedObjects['afCrmStatus'][$this->getPrimaryKey()] = true;
-		$keys = afCrmStatusPeer::getFieldNames($keyType);
+		$alreadyDumpedObjects['color'][$this->getPrimaryKey()] = true;
+		$keys = colorPeer::getFieldNames($keyType);
 		$result = array(
 			$keys[0] => $this->getId(),
 			$keys[1] => $this->getName(),
-			$keys[2] => $this->getDescription(),
 		);
-		if ($includeForeignObjects) {
-			if (null !== $this->collafCrmActivitys) {
-				$result['afCrmActivitys'] = $this->collafCrmActivitys->toArray(null, true, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
-			}
-		}
 		return $result;
 	}
 
@@ -688,7 +597,7 @@ abstract class BaseafCrmStatus extends BaseObject  implements Persistent
 	 */
 	public function setByName($name, $value, $type = BasePeer::TYPE_PHPNAME)
 	{
-		$pos = afCrmStatusPeer::translateFieldName($name, $type, BasePeer::TYPE_NUM);
+		$pos = colorPeer::translateFieldName($name, $type, BasePeer::TYPE_NUM);
 		return $this->setByPosition($pos, $value);
 	}
 
@@ -708,9 +617,6 @@ abstract class BaseafCrmStatus extends BaseObject  implements Persistent
 				break;
 			case 1:
 				$this->setName($value);
-				break;
-			case 2:
-				$this->setDescription($value);
 				break;
 		} // switch()
 	}
@@ -734,11 +640,10 @@ abstract class BaseafCrmStatus extends BaseObject  implements Persistent
 	 */
 	public function fromArray($arr, $keyType = BasePeer::TYPE_PHPNAME)
 	{
-		$keys = afCrmStatusPeer::getFieldNames($keyType);
+		$keys = colorPeer::getFieldNames($keyType);
 
 		if (array_key_exists($keys[0], $arr)) $this->setId($arr[$keys[0]]);
 		if (array_key_exists($keys[1], $arr)) $this->setName($arr[$keys[1]]);
-		if (array_key_exists($keys[2], $arr)) $this->setDescription($arr[$keys[2]]);
 	}
 
 	/**
@@ -748,11 +653,10 @@ abstract class BaseafCrmStatus extends BaseObject  implements Persistent
 	 */
 	public function buildCriteria()
 	{
-		$criteria = new Criteria(afCrmStatusPeer::DATABASE_NAME);
+		$criteria = new Criteria(colorPeer::DATABASE_NAME);
 
-		if ($this->isColumnModified(afCrmStatusPeer::ID)) $criteria->add(afCrmStatusPeer::ID, $this->id);
-		if ($this->isColumnModified(afCrmStatusPeer::NAME)) $criteria->add(afCrmStatusPeer::NAME, $this->name);
-		if ($this->isColumnModified(afCrmStatusPeer::DESCRIPTION)) $criteria->add(afCrmStatusPeer::DESCRIPTION, $this->description);
+		if ($this->isColumnModified(colorPeer::ID)) $criteria->add(colorPeer::ID, $this->id);
+		if ($this->isColumnModified(colorPeer::NAME)) $criteria->add(colorPeer::NAME, $this->name);
 
 		return $criteria;
 	}
@@ -767,8 +671,8 @@ abstract class BaseafCrmStatus extends BaseObject  implements Persistent
 	 */
 	public function buildPkeyCriteria()
 	{
-		$criteria = new Criteria(afCrmStatusPeer::DATABASE_NAME);
-		$criteria->add(afCrmStatusPeer::ID, $this->id);
+		$criteria = new Criteria(colorPeer::DATABASE_NAME);
+		$criteria->add(colorPeer::ID, $this->id);
 
 		return $criteria;
 	}
@@ -808,7 +712,7 @@ abstract class BaseafCrmStatus extends BaseObject  implements Persistent
 	 * If desired, this method can also make copies of all associated (fkey referrers)
 	 * objects.
 	 *
-	 * @param      object $copyObj An object of afCrmStatus (or compatible) type.
+	 * @param      object $copyObj An object of color (or compatible) type.
 	 * @param      boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
 	 * @param      boolean $makeNew Whether to reset autoincrement PKs and make the object new.
 	 * @throws     PropelException
@@ -816,21 +720,6 @@ abstract class BaseafCrmStatus extends BaseObject  implements Persistent
 	public function copyInto($copyObj, $deepCopy = false, $makeNew = true)
 	{
 		$copyObj->setName($this->getName());
-		$copyObj->setDescription($this->getDescription());
-
-		if ($deepCopy) {
-			// important: temporarily setNew(false) because this affects the behavior of
-			// the getter/setter methods for fkey referrer objects.
-			$copyObj->setNew(false);
-
-			foreach ($this->getafCrmActivitys() as $relObj) {
-				if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
-					$copyObj->addafCrmActivity($relObj->copy($deepCopy));
-				}
-			}
-
-		} // if ($deepCopy)
-
 		if ($makeNew) {
 			$copyObj->setNew(true);
 			$copyObj->setId(NULL); // this is a auto-increment column, so set to default value
@@ -846,7 +735,7 @@ abstract class BaseafCrmStatus extends BaseObject  implements Persistent
 	 * objects.
 	 *
 	 * @param      boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
-	 * @return     afCrmStatus Clone of current object.
+	 * @return     color Clone of current object.
 	 * @throws     PropelException
 	 */
 	public function copy($deepCopy = false)
@@ -865,253 +754,14 @@ abstract class BaseafCrmStatus extends BaseObject  implements Persistent
 	 * same instance for all member of this class. The method could therefore
 	 * be static, but this would prevent one from overriding the behavior.
 	 *
-	 * @return     afCrmStatusPeer
+	 * @return     colorPeer
 	 */
 	public function getPeer()
 	{
 		if (self::$peer === null) {
-			self::$peer = new afCrmStatusPeer();
+			self::$peer = new colorPeer();
 		}
 		return self::$peer;
-	}
-
-
-	/**
-	 * Initializes a collection based on the name of a relation.
-	 * Avoids crafting an 'init[$relationName]s' method name
-	 * that wouldn't work when StandardEnglishPluralizer is used.
-	 *
-	 * @param      string $relationName The name of the relation to initialize
-	 * @return     void
-	 */
-	public function initRelation($relationName)
-	{
-		if ('afCrmActivity' == $relationName) {
-			return $this->initafCrmActivitys();
-		}
-	}
-
-	/**
-	 * Clears out the collafCrmActivitys collection
-	 *
-	 * This does not modify the database; however, it will remove any associated objects, causing
-	 * them to be refetched by subsequent calls to accessor method.
-	 *
-	 * @return     void
-	 * @see        addafCrmActivitys()
-	 */
-	public function clearafCrmActivitys()
-	{
-		$this->collafCrmActivitys = null; // important to set this to NULL since that means it is uninitialized
-	}
-
-	/**
-	 * Initializes the collafCrmActivitys collection.
-	 *
-	 * By default this just sets the collafCrmActivitys collection to an empty array (like clearcollafCrmActivitys());
-	 * however, you may wish to override this method in your stub class to provide setting appropriate
-	 * to your application -- for example, setting the initial array to the values stored in database.
-	 *
-	 * @param      boolean $overrideExisting If set to true, the method call initializes
-	 *                                        the collection even if it is not empty
-	 *
-	 * @return     void
-	 */
-	public function initafCrmActivitys($overrideExisting = true)
-	{
-		if (null !== $this->collafCrmActivitys && !$overrideExisting) {
-			return;
-		}
-		$this->collafCrmActivitys = new PropelObjectCollection();
-		$this->collafCrmActivitys->setModel('afCrmActivity');
-	}
-
-	/**
-	 * Gets an array of afCrmActivity objects which contain a foreign key that references this object.
-	 *
-	 * If the $criteria is not null, it is used to always fetch the results from the database.
-	 * Otherwise the results are fetched from the database the first time, then cached.
-	 * Next time the same method is called without $criteria, the cached collection is returned.
-	 * If this afCrmStatus is new, it will return
-	 * an empty collection or the current collection; the criteria is ignored on a new object.
-	 *
-	 * @param      Criteria $criteria optional Criteria object to narrow the query
-	 * @param      PropelPDO $con optional connection object
-	 * @return     PropelCollection|array afCrmActivity[] List of afCrmActivity objects
-	 * @throws     PropelException
-	 */
-	public function getafCrmActivitys($criteria = null, PropelPDO $con = null)
-	{
-		if(null === $this->collafCrmActivitys || null !== $criteria) {
-			if ($this->isNew() && null === $this->collafCrmActivitys) {
-				// return empty collection
-				$this->initafCrmActivitys();
-			} else {
-				$collafCrmActivitys = afCrmActivityQuery::create(null, $criteria)
-					->filterByafCrmStatus($this)
-					->find($con);
-				if (null !== $criteria) {
-					return $collafCrmActivitys;
-				}
-				$this->collafCrmActivitys = $collafCrmActivitys;
-			}
-		}
-		return $this->collafCrmActivitys;
-	}
-
-	/**
-	 * Sets a collection of afCrmActivity objects related by a one-to-many relationship
-	 * to the current object.
-	 * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
-	 * and new objects from the given Propel collection.
-	 *
-	 * @param      PropelCollection $afCrmActivitys A Propel collection.
-	 * @param      PropelPDO $con Optional connection object
-	 */
-	public function setafCrmActivitys(PropelCollection $afCrmActivitys, PropelPDO $con = null)
-	{
-		$this->afCrmActivitysScheduledForDeletion = $this->getafCrmActivitys(new Criteria(), $con)->diff($afCrmActivitys);
-
-		foreach ($afCrmActivitys as $afCrmActivity) {
-			// Fix issue with collection modified by reference
-			if ($afCrmActivity->isNew()) {
-				$afCrmActivity->setafCrmStatus($this);
-			}
-			$this->addafCrmActivity($afCrmActivity);
-		}
-
-		$this->collafCrmActivitys = $afCrmActivitys;
-	}
-
-	/**
-	 * Returns the number of related afCrmActivity objects.
-	 *
-	 * @param      Criteria $criteria
-	 * @param      boolean $distinct
-	 * @param      PropelPDO $con
-	 * @return     int Count of related afCrmActivity objects.
-	 * @throws     PropelException
-	 */
-	public function countafCrmActivitys(Criteria $criteria = null, $distinct = false, PropelPDO $con = null)
-	{
-		if(null === $this->collafCrmActivitys || null !== $criteria) {
-			if ($this->isNew() && null === $this->collafCrmActivitys) {
-				return 0;
-			} else {
-				$query = afCrmActivityQuery::create(null, $criteria);
-				if($distinct) {
-					$query->distinct();
-				}
-				return $query
-					->filterByafCrmStatus($this)
-					->count($con);
-			}
-		} else {
-			return count($this->collafCrmActivitys);
-		}
-	}
-
-	/**
-	 * Method called to associate a afCrmActivity object to this object
-	 * through the afCrmActivity foreign key attribute.
-	 *
-	 * @param      afCrmActivity $l afCrmActivity
-	 * @return     afCrmStatus The current object (for fluent API support)
-	 */
-	public function addafCrmActivity(afCrmActivity $l)
-	{
-		if ($this->collafCrmActivitys === null) {
-			$this->initafCrmActivitys();
-		}
-		if (!$this->collafCrmActivitys->contains($l)) { // only add it if the **same** object is not already associated
-			$this->doAddafCrmActivity($l);
-		}
-
-		return $this;
-	}
-
-	/**
-	 * @param	afCrmActivity $afCrmActivity The afCrmActivity object to add.
-	 */
-	protected function doAddafCrmActivity($afCrmActivity)
-	{
-		$this->collafCrmActivitys[]= $afCrmActivity;
-		$afCrmActivity->setafCrmStatus($this);
-	}
-
-
-	/**
-	 * If this collection has already been initialized with
-	 * an identical criteria, it returns the collection.
-	 * Otherwise if this afCrmStatus is new, it will return
-	 * an empty collection; or if this afCrmStatus has previously
-	 * been saved, it will retrieve related afCrmActivitys from storage.
-	 *
-	 * This method is protected by default in order to keep the public
-	 * api reasonable.  You can provide public methods for those you
-	 * actually need in afCrmStatus.
-	 *
-	 * @param      Criteria $criteria optional Criteria object to narrow the query
-	 * @param      PropelPDO $con optional connection object
-	 * @param      string $join_behavior optional join type to use (defaults to Criteria::LEFT_JOIN)
-	 * @return     PropelCollection|array afCrmActivity[] List of afCrmActivity objects
-	 */
-	public function getafCrmActivitysJoinafCrmAccount($criteria = null, $con = null, $join_behavior = Criteria::LEFT_JOIN)
-	{
-		$query = afCrmActivityQuery::create(null, $criteria);
-		$query->joinWith('afCrmAccount', $join_behavior);
-
-		return $this->getafCrmActivitys($query, $con);
-	}
-
-
-	/**
-	 * If this collection has already been initialized with
-	 * an identical criteria, it returns the collection.
-	 * Otherwise if this afCrmStatus is new, it will return
-	 * an empty collection; or if this afCrmStatus has previously
-	 * been saved, it will retrieve related afCrmActivitys from storage.
-	 *
-	 * This method is protected by default in order to keep the public
-	 * api reasonable.  You can provide public methods for those you
-	 * actually need in afCrmStatus.
-	 *
-	 * @param      Criteria $criteria optional Criteria object to narrow the query
-	 * @param      PropelPDO $con optional connection object
-	 * @param      string $join_behavior optional join type to use (defaults to Criteria::LEFT_JOIN)
-	 * @return     PropelCollection|array afCrmActivity[] List of afCrmActivity objects
-	 */
-	public function getafCrmActivitysJoinafCrmContact($criteria = null, $con = null, $join_behavior = Criteria::LEFT_JOIN)
-	{
-		$query = afCrmActivityQuery::create(null, $criteria);
-		$query->joinWith('afCrmContact', $join_behavior);
-
-		return $this->getafCrmActivitys($query, $con);
-	}
-
-
-	/**
-	 * If this collection has already been initialized with
-	 * an identical criteria, it returns the collection.
-	 * Otherwise if this afCrmStatus is new, it will return
-	 * an empty collection; or if this afCrmStatus has previously
-	 * been saved, it will retrieve related afCrmActivitys from storage.
-	 *
-	 * This method is protected by default in order to keep the public
-	 * api reasonable.  You can provide public methods for those you
-	 * actually need in afCrmStatus.
-	 *
-	 * @param      Criteria $criteria optional Criteria object to narrow the query
-	 * @param      PropelPDO $con optional connection object
-	 * @param      string $join_behavior optional join type to use (defaults to Criteria::LEFT_JOIN)
-	 * @return     PropelCollection|array afCrmActivity[] List of afCrmActivity objects
-	 */
-	public function getafCrmActivitysJoinafGuardUser($criteria = null, $con = null, $join_behavior = Criteria::LEFT_JOIN)
-	{
-		$query = afCrmActivityQuery::create(null, $criteria);
-		$query->joinWith('afGuardUser', $join_behavior);
-
-		return $this->getafCrmActivitys($query, $con);
 	}
 
 	/**
@@ -1121,7 +771,6 @@ abstract class BaseafCrmStatus extends BaseObject  implements Persistent
 	{
 		$this->id = null;
 		$this->name = null;
-		$this->description = null;
 		$this->alreadyInSave = false;
 		$this->alreadyInValidation = false;
 		$this->clearAllReferences();
@@ -1142,27 +791,18 @@ abstract class BaseafCrmStatus extends BaseObject  implements Persistent
 	public function clearAllReferences($deep = false)
 	{
 		if ($deep) {
-			if ($this->collafCrmActivitys) {
-				foreach ($this->collafCrmActivitys as $o) {
-					$o->clearAllReferences($deep);
-				}
-			}
 		} // if ($deep)
 
-		if ($this->collafCrmActivitys instanceof PropelCollection) {
-			$this->collafCrmActivitys->clearIterator();
-		}
-		$this->collafCrmActivitys = null;
 	}
 
 	/**
 	 * Return the string representation of this object
 	 *
-	 * @return string The value of the 'name' column
+	 * @return string
 	 */
 	public function __toString()
 	{
-		return (string) $this->getName();
+		return (string) $this->exportTo(colorPeer::DEFAULT_STRING_FORMAT);
 	}
 
 	/**
@@ -1172,7 +812,7 @@ abstract class BaseafCrmStatus extends BaseObject  implements Persistent
 	{
 		
 		// symfony_behaviors behavior
-		if ($callable = sfMixer::getCallable('BaseafCrmStatus:' . $name))
+		if ($callable = sfMixer::getCallable('Basecolor:' . $name))
 		{
 		  array_unshift($params, $this);
 		  return call_user_func_array($callable, $params);
@@ -1181,4 +821,4 @@ abstract class BaseafCrmStatus extends BaseObject  implements Persistent
 		return parent::__call($name, $params);
 	}
 
-} // BaseafCrmStatus
+} // Basecolor

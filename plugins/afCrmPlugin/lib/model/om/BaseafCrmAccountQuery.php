@@ -170,7 +170,7 @@ abstract class BaseafCrmAccountQuery extends ModelCriteria
 	{
 		$sql = 'SELECT `ID`, `NAME`, `CITY`, `ZIPCODE`, `ADDRESS_LINE1`, `ADDRESS_LINE2`, `STATE`, `COUNTRY`, `PHONE`, `FAX`, `EMAIL`, `WEBSITE`, `DESCRIPTION` FROM `afcrm_account` WHERE `ID` = :p0';
 		try {
-			$stmt = $con->prepare($sql);			
+			$stmt = $con->prepare($sql);
 			$stmt->bindValue(':p0', $key, PDO::PARAM_INT);
 			$stmt->execute();
 		} catch (Exception $e) {

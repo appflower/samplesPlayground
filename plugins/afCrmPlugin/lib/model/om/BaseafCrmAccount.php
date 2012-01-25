@@ -939,43 +939,43 @@ abstract class BaseafCrmAccount extends BaseObject  implements Persistent
 			$stmt = $con->prepare($sql);
 			foreach ($modifiedColumns as $identifier => $columnName) {
 				switch ($columnName) {
-					case '`ID`':						
+					case '`ID`':
 						$stmt->bindValue($identifier, $this->id, PDO::PARAM_INT);
 						break;
-					case '`NAME`':						
+					case '`NAME`':
 						$stmt->bindValue($identifier, $this->name, PDO::PARAM_STR);
 						break;
-					case '`CITY`':						
+					case '`CITY`':
 						$stmt->bindValue($identifier, $this->city, PDO::PARAM_STR);
 						break;
-					case '`ZIPCODE`':						
+					case '`ZIPCODE`':
 						$stmt->bindValue($identifier, $this->zipcode, PDO::PARAM_STR);
 						break;
-					case '`ADDRESS_LINE1`':						
+					case '`ADDRESS_LINE1`':
 						$stmt->bindValue($identifier, $this->address_line1, PDO::PARAM_STR);
 						break;
-					case '`ADDRESS_LINE2`':						
+					case '`ADDRESS_LINE2`':
 						$stmt->bindValue($identifier, $this->address_line2, PDO::PARAM_STR);
 						break;
-					case '`STATE`':						
+					case '`STATE`':
 						$stmt->bindValue($identifier, $this->state, PDO::PARAM_STR);
 						break;
-					case '`COUNTRY`':						
+					case '`COUNTRY`':
 						$stmt->bindValue($identifier, $this->country, PDO::PARAM_STR);
 						break;
-					case '`PHONE`':						
+					case '`PHONE`':
 						$stmt->bindValue($identifier, $this->phone, PDO::PARAM_STR);
 						break;
-					case '`FAX`':						
+					case '`FAX`':
 						$stmt->bindValue($identifier, $this->fax, PDO::PARAM_STR);
 						break;
-					case '`EMAIL`':						
+					case '`EMAIL`':
 						$stmt->bindValue($identifier, $this->email, PDO::PARAM_STR);
 						break;
-					case '`WEBSITE`':						
+					case '`WEBSITE`':
 						$stmt->bindValue($identifier, $this->website, PDO::PARAM_STR);
 						break;
-					case '`DESCRIPTION`':						
+					case '`DESCRIPTION`':
 						$stmt->bindValue($identifier, $this->description, PDO::PARAM_STR);
 						break;
 				}
