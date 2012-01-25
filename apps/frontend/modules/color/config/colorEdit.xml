@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<i:view xmlns:i="http://www.appflower.com/schema/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="edit" xsi:schemaLocation="http://www.appflower.com/schema/appflower.xsd">
+    <i:title><![CDATA[Edit Color]]></i:title>
+    <i:datasource type="orm">
+        <i:class>colorPeer</i:class>
+        <i:method name="retrieveByPk">
+            <i:param name="id">{id}</i:param>
+        </i:method>
+    </i:datasource>
+    <i:fields url="color/colorEdit?id={id}">
+        <i:field label="Name" name="name" type="input" value="{name}">
+            <i:validator name="sfValidatorString">
+                <i:param name="required">false</i:param>
+                <i:param name="max_length">255</i:param>
+            </i:validator>
+        </i:field>
+    </i:fields>
+</i:view>
