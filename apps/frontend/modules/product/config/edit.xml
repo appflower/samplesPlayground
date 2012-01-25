@@ -19,7 +19,7 @@
         </i:field>
         <i:field label="Price" name="price" type="input">
             <i:validator name="immValidatorNumber">
-                <i:param name="required">false</i:param>
+                <i:param name="required">true</i:param>
             </i:validator>
             <i:value type="orm">
                 <i:source name="getPrice" />
@@ -27,13 +27,31 @@
         </i:field>
         <i:field label="Quantity" name="quantity" type="input">
             <i:validator name="sfValidatorInteger">
-                <i:param name="required">false</i:param>
+                <i:param name="required">true</i:param>
             </i:validator>
             <i:value type="orm">
                 <i:source name="getQuantity" />
             </i:value>
         </i:field>
+        <i:field name="static_image" label="" type="static">
+			<i:value type="orm">
+				<i:source name="getHtmlImage" />
+			</i:value>
+		</i:field>
         <i:field label="Image" name="image" type="file">
 	     </i:field>
     </i:fields>
+    
+    <i:grouping>
+        <i:set title="Product Information" tabtitle="Product Information">
+            <i:ref to="name"/>
+            <i:ref to="price"/>
+            <i:ref to="quantity"/>
+        </i:set>
+
+        <i:set title="Product Image" tabtitle="Product Image">
+            <i:ref to="static_image"/>
+            <i:ref to="image"/>
+        </i:set>
+    </i:grouping>
 </i:view>
