@@ -24,11 +24,5 @@ class chartActions extends sfActions
   { 
     $html = '<iframe src="/chart/chart" width="100%" height="100%" frameborder="0"></iframe>';
     $this->content = $html;
-    
-    $js = '';
-        
-        
-        $this->initJs = $js;
-    
   }
 }

@@ -4,6 +4,5 @@
     
     <i:params>
         <i:param name="html">{content}</i:param>
-        <i:param name="initJs">{initJs}</i:param>
     </i:params>
 </i:view>
