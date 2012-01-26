@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<i:view xmlns:i="http://www.appflower.com/schema/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="edit" xsi:schemaLocation="http://www.appflower.com/schema/appflower.xsd">
+    <i:title><![CDATA[dropdownsort]]></i:title>
+    <i:datasource type="orm">
+        <i:class>afCrmContactPeer</i:class>
+        <i:method name="retrieveByPk">
+            <i:param name="id">{id}</i:param>
+        </i:method>
+    </i:datasource>
+    <i:fields url="test/dropdownsort?id={id}">
+        <i:field label="Accounts" name="account_id" selected="{account_id}" type="combo">
+            <i:value type="orm">
+                <i:class>ModelCriteriaFetcher</i:class>
+                <i:method name="getDataForComboWidget">
+                    <i:param name="modelName">afCrmAccount</i:param>
+                    <i:param name="params">[orderByName:desc]</i:param>
+                </i:method>
+            </i:value>
+            <i:validator name="sfValidatorPropelChoice">
+                <i:param name="model">afCrmAccount</i:param>
+                <i:param name="column">id</i:param>
+                <i:param name="required">false</i:param>
+            </i:validator>
+        </i:field>
+    </i:fields>
+</i:view>
