@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<i:view xmlns:i="http://www.appflower.com/schema/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="edit" xsi:schemaLocation="http://www.appflower.com/schema/appflower.xsd">
+    <i:title><![CDATA[dummy]]></i:title>
+    <i:datasource type="orm">
+        <i:class>productPeer</i:class>
+        <i:method name="retrieveByPk">
+            <i:param name="id">{id}</i:param>
+        </i:method>
+    </i:datasource>
+    <i:fields resetable="false" submit="true" url="product/dummy?id={id}">
+        <i:field label="Name" name="name" type="input" value="{name}">
+            <i:validator name="sfValidatorString">
+                <i:param name="required">false</i:param>
+                <i:param name="max_length">255</i:param>
+            </i:validator>
+        </i:field>
+        <i:field label="Combo" name="combo" type="combo"/>
+        <i:field label="Textarea" name="textarea" type="textarea"/>
+        <i:field label="Static" name="static" type="static" value="&lt;img src=&quot;http://www.appflower.com/images/general/bg_logo.jpg&quot; /&gt;"/>
+        <i:field label="Checkbox" name="checkbox" type="checkbox"/>
+        <i:field label="Radio" name="radio" type="radio"/>
+        <i:field label="File" name="file" type="file"/>
+        <i:field label="Datetime" name="datetime" type="datetime"/>
+        <i:field label="field" name="field" type="doublemulticombo"/>
+    </i:fields>
+</i:view>
