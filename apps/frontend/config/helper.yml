@@ -58,6 +58,11 @@ menu:
             label: 'Combo with quick add'
             url: /test/combonew
             icon: /images/famfamfam/bullet_blue.png
+        item25:
+          attributes:
+            label: 'Form validation'
+            url: /test/validations
+            icon: /images/famfamfam/bullet_blue.png
     item8:
       attributes:
         label: Grids
