@@ -48,6 +48,16 @@ menu:
             label: 'Static combo field'
             url: /test/staticcombo
             icon: /images/famfamfam/bullet_blue.png
+        item23:
+          attributes:
+            label: 'File Upload'
+            url: /product/edit
+            icon: /images/famfamfam/bullet_blue.png
+        item24:
+          attributes:
+            label: 'Combo with quick add'
+            url: /test/combonew
+            icon: /images/famfamfam/bullet_blue.png
     item8:
       attributes:
         label: Grids
@@ -98,12 +108,12 @@ menu:
         item15:
           attributes:
             label: 'Simple Layout'
-            url: /pages/dashboard
+            url: /pages/test
             icon: /images/famfamfam/bullet_blue.png
         item16:
           attributes:
             label: 'Tabbed Layout'
-            url: /pages/security
+            url: /pages/dashboard
             icon: /images/famfamfam/bullet_blue.png
     item17:
       attributes:
