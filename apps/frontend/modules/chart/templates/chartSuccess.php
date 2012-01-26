@@ -1,4 +1,4 @@
-<div id="chartdiv" style="width: 100%; height: 400px;"></div>
+<div id="chartdiv" style="width: 100%; height: 100%;"></div>
 
 <script type="text/javascript">
             var chart;
@@ -7,24 +7,46 @@
             var chartData = [
                 <?php foreach($products as $prod): ?>
                     {
-                        country: "<?php echo $prod->getName() ?>",
+                        name: "<?php echo $prod->getName() ?>",
                         value: <?php echo $prod->getQuantity() ?>
                     },
                 <?php endforeach;?>
              ];
 
             AmCharts.ready(function () {
-                // PIE CHART
-                chart = new AmCharts.AmPieChart();
+                // SERIAL CHART
+                chart = new AmCharts.AmSerialChart();
                 chart.dataProvider = chartData;
-                chart.titleField = "country";
-                chart.valueField = "value";
-                chart.outlineColor = "#FFFFFF";
-                chart.outlineAlpha = 0.8;
-                chart.outlineThickness = 2;
-                // this makes the chart 3D
-                chart.depth3D = 15;
+                chart.categoryField = "name";
+                chart.rotate = true;
+                chart.depth3D = 20;
                 chart.angle = 30;
+
+                // AXES
+                // Category
+                var categoryAxis = chart.categoryAxis;
+                categoryAxis.gridPosition = "start";
+                categoryAxis.axisColor = "#DADADA";
+                categoryAxis.fillAlpha = 1;
+                categoryAxis.gridAlpha = 0;
+                categoryAxis.fillColor = "#FAFAFA";
+
+                // value
+                var valueAxis = new AmCharts.ValueAxis();
+                valueAxis.axisColor = "#DADADA";
+                valueAxis.gridAlpha = 0.1;
+                chart.addValueAxis(valueAxis);
+
+                // GRAPH
+                var graph = new AmCharts.AmGraph();
+                graph.title = "Income";
+                graph.valueField = "value";
+                graph.type = "column";
+                graph.balloonText = "Quantity of [[category]]:[[value]]";
+                graph.lineAlpha = 0;
+                graph.fillColors = "#bf1c25";
+                graph.fillAlphas = 1;
+                chart.addGraph(graph);
 
                 // WRITE
                 chart.write("chartdiv");

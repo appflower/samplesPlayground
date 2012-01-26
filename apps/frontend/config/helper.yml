@@ -131,6 +131,17 @@ menu:
             label: 'Grids as JSON'
             url: '/afCrmDeals/listDeals?widget_load=false&af_format=json'
             icon: /images/famfamfam/bullet_blue.png
+    item19:
+      attributes:
+        label: 'Charts'
+        url: '#'
+        icon: /images/famfamfam/folder.png
+      children:
+        item20:
+          attributes:
+            label: 'Bar-chart'
+            url: '/chart/sample'
+            icon: /images/famfamfam/bullet_blue.png
 links:
   dashboard:
     title: Home
