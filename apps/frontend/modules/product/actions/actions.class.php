@@ -83,5 +83,6 @@ class productActions extends sfActions
   	afResponseHelper::create()->success(true)->message('Successfully saved your information!')->redirect('/product/list')->asJson()
   	);
   }
+  
 }
 
