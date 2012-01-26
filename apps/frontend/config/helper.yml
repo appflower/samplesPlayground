@@ -2,12 +2,120 @@ menu:
   attributes:
     title: 'App Flower'
   main:
-    dashboard:
+    item1:
       attributes:
-        label: 'Dashboard page'
-        icon: /images/famfamfam/house_go.png
-        type: button
-        handler: 'afApp.load("/logout", "page");'
+        label: Forms
+        url: '#'
+        icon: /images/famfamfam/folder.png
+      children:
+        item21:
+          attributes:
+            label: 'Basic Form'
+            url: /afCrmStatus/editStatus
+            icon: /images/famfamfam/bullet_blue.png
+        item19:
+          attributes:
+            label: 'Various forms fields'
+            url: /afCrmActivity/editActivity
+            icon: /images/famfamfam/bullet_blue.png
+        item2:
+          attributes:
+            label: 'Form with field-set'
+            url: /product/edit
+            icon: /images/famfamfam/bullet_blue.png
+        item3:
+          attributes:
+            label: 'Form with tabs'
+            url: /product/edit
+            icon: /images/famfamfam/bullet_blue.png
+        item4:
+          attributes:
+            label: 'Arrangement of fields'
+            url: /afCrmContacts/editContact
+            icon: /images/famfamfam/bullet_blue.png
+        item5:
+          attributes:
+            label: 'One-to-Many relation'
+            url: /afCrmContacts/editContact
+            icon: /images/famfamfam/bullet_blue.png
+        item6:
+          attributes:
+            label: 'Many-to-Many relation'
+            url: /afCrmActivity/editActivity
+            icon: /images/famfamfam/bullet_blue.png
+        item7:
+          attributes:
+            label: 'Static combo field'
+            url: /test/staticcombo
+            icon: /images/famfamfam/bullet_blue.png
+    item8:
+      attributes:
+        label: Grids
+        url: '#'
+        icon: /images/famfamfam/folder.png
+      children:
+        item9:
+          attributes:
+            label: 'Basic List: sorting, filters, paging'
+            url: /afCrmDeals/listDeals
+            icon: /images/famfamfam/bullet_blue.png
+        item10:
+          attributes:
+            label: 'Row Actions'
+            url: /afGuardUser/listUsers
+            icon: /images/famfamfam/bullet_blue.png
+        item11:
+          attributes:
+            label: 'More Actions'
+            url: /afGuardGroup/listGroups
+            icon: /images/famfamfam/bullet_blue.png
+        item12:
+          attributes:
+            label: 'Images in Lists'
+            url: /product/list
+            icon: /images/famfamfam/bullet_blue.png
+        item13:
+          attributes:
+            label: 'Postable List'
+            url: /afGuardGroup/listGroups
+            icon: /images/famfamfam/bullet_blue.png
+        item18:
+          attributes:
+            label: 'Master-Detail View'
+            url: /pages/md
+            icon: /images/famfamfam/bullet_blue.png
+        item22:
+          attributes:
+            label: 'List with bg colors'
+            url: /color/colorList
+            icon: /images/famfamfam/bullet_blue.png
+    item14:
+      attributes:
+        label: Layouts
+        url: '#'
+        icon: /images/famfamfam/folder.png
+      children:
+        item15:
+          attributes:
+            label: 'Simple Layout'
+            url: /pages/dashboard
+            icon: /images/famfamfam/bullet_blue.png
+        item16:
+          attributes:
+            label: 'Tabbed Layout'
+            url: /pages/security
+            icon: /images/famfamfam/bullet_blue.png
+    item17:
+      attributes:
+        label: 'REST API'
+        url: '#'
+        icon: /images/famfamfam/folder.png
+      children:
+        item18:
+          attributes:
+            label: 'Grids as JSON'
+            url: '/afCrmDeals/listDeals?widget_load=false&af_format=json'
+            icon: /images/famfamfam/bullet_blue.png
 links:
   dashboard:
     title: Home
