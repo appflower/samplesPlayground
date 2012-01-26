@@ -12,10 +12,10 @@ class editmdAction extends sfAction
             $product = productPeer::retrieveByPk($this->getRequestParameter('id'));
             if($product!=null)
             {
-                $result['data']['edit[7][id]']=$product->getId();
-                $result['data']['edit[7][name]'] = $product->getName();
-                $result['data']['edit[7][price]'] = $product->getPrice();
-                $result['data']['edit[7][quantity]'] = $product->getQuantity();
+                $result['data']['edit[2][id]']=$product->getId();
+                $result['data']['edit[2][name]'] = $product->getName();
+                $result['data']['edit[2][price]'] = $product->getPrice();
+                $result['data']['edit[2][quantity]'] = $product->getQuantity();
                     
                 $result['success']=true;            
             }
@@ -27,7 +27,7 @@ class editmdAction extends sfAction
         }
         else {
             $formData = $this->getRequestParameter('edit');
-            $formData = $formData['7'];
+            $formData = $formData[2];
             $product = ProductPeer::retrieveByPK($formData['id']);
             $product->setName($formData['name']);
   		    $product->setPrice($formData['price']);

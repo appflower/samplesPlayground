@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<i:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.appflower.com /schema/appflower.xsd"
+xmlns:i="http://www.appflower.com/schema/" type="layout">
+
+<i:title>Master Detail Example</i:title>
+    
+<i:area type="content">
+        <i:component column="0" name="listmd" module="product" bindForm="0"></i:component>
+        <i:component column="0" name="addmd" module="product"></i:component>
+</i:area>
+</i:view>
