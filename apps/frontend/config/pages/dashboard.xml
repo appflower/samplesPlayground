@@ -9,12 +9,5 @@
             <i:component column="0" module="afCrmActivity" name="listActivities"/>
             <i:component column="0" module="afCrmStatus" name="listStatuses"/>
         </i:tab>
-        <i:tab title="Master Detail" layout="1">
-            <i:component column="0" name="listmd" module="product" bindForm="0"></i:component>
-            <i:component column="0" name="addmd" module="product"></i:component>
-        </i:tab>
-        <i:tab title="Grid with row colors" layout="1">
-            <i:component column="0" name="colorList" module="color"></i:component>
-        </i:tab>
     </i:area>
 </i:view>

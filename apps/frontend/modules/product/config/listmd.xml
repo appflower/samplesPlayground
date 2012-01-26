@@ -11,7 +11,6 @@
         <i:column filter="[type:string,dataIndex:order.name]" label="Name" name="name"/>
         <i:column filter="[type:numeric,dataIndex:order.price]" label="Price" name="price"/>
         <i:column filter="[type:numeric,dataIndex:order.quantity]" label="Quantity" name="quantity"/>
-        <i:column label="Image" name="html_image"/>
     </i:fields>
     <i:rowactions>
         <i:action name="edit_ticket" iconCls="icon-edit" url="/product/editmd" bindForm="true" tooltip="Edit Product"/>

@@ -1,8 +1,8 @@
 <?php
 /**
- * @author Radu Topala <radu@appflower.com>
+ * Generated page action class
  */
-class mdAction extends sfAction
+class testAction extends sfAction
 {
     /**
      * Execute actions
