@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<i:view xmlns:i="http://www.appflower.com/schema/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="edit" xsi:schemaLocation="http://www.appflower.com/schema/appflower.xsd">
+    <i:title><![CDATA[validations]]></i:title>
+    <i:datasource type="orm">
+        <i:class>DummyPeer</i:class>
+        <i:method name="retrieveByPk">
+            <i:param name="id">{id}</i:param>
+        </i:method>
+    </i:datasource>
+    <i:fields url="test/validations?id={id}">
+        <i:field label="A string" name="combo" type="input" value="{combo}">
+            <i:help>Please type in a string,  5-10 characters</i:help>
+            <i:validator name="sfValidatorString">
+                <i:param name="required">true</i:param>
+                <i:param name="max_length">10</i:param>
+                <i:param name="min_length">5</i:param>
+            </i:validator>
+        </i:field>
+        <i:field label="A number" name="foo" type="input" value="{foo}">
+            <i:help>Please type in an integer larger than 20</i:help>
+            <i:validator name="sfValidatorInteger">
+                <i:param name="min">20</i:param>
+            </i:validator>
+        </i:field>
+        <i:field label="A pattern" name="bar" type="input" value="{bar}">
+            <i:help>Please type in a value that contains A-Z or 0-9 characters only (case-sensitive)</i:help>
+            <i:validator name="sfValidatorRegex">
+                <i:param name="pattern">/^[A-Z0-9]+$/</i:param>
+            </i:validator>
+        </i:field>
+    </i:fields>
+</i:view>
