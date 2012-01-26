@@ -15,4 +15,9 @@
  */
 class afCrmContact extends BaseafCrmContact {
 
+
+	public function __toString() {
+		return $this->getFirstName()." ".$this->getLastName();
+	}
+
 } // afCrmContact

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<i:view xmlns:i="http://www.appflower.com/schema/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="edit" xsi:schemaLocation="http://www.appflower.com/schema/appflower.xsd">
+    <i:title><![CDATA[Rest POST example]]></i:title>
+    <i:fields url="rest/restEdit">
+        <i:field label="Name" name="name" type="input">
+            <i:validator name="sfValidatorString">
+                <i:param name="required">false</i:param>
+                <i:param name="max_length">255</i:param>
+            </i:validator>
+        </i:field>
+        <i:field label="Price" name="price" type="input">
+            <i:validator name="immValidatorNumber">
+                <i:param name="required">false</i:param>
+            </i:validator>
+        </i:field>
+        <i:field label="Quantity" name="quantity" type="input">
+            <i:validator name="sfValidatorInteger">
+                <i:param name="required">false</i:param>
+            </i:validator>
+        </i:field>
+    </i:fields>
+    <i:grouping>
+        <i:set title="Field-Set">
+            <i:ref to="name"/>
+            <i:ref to="price"/>
+            <i:ref to="quantity"/>
+        </i:set>
+    </i:grouping>
+</i:view>
