@@ -15,4 +15,17 @@
  */
 class productPeer extends BaseproductPeer {
 
+	public static function getAll()
+	{
+		$items = self::doSelect(new Criteria());
+		$ret = array();
+		
+		foreach($items as $item)
+		{
+			$ret[$item->getId()] = $item->getName();
+		}
+		
+		return $ret;
+	} 
+
 } // productPeer
