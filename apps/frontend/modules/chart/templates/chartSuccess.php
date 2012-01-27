@@ -1,57 +1,40 @@
-<div id="chartdiv" style="width: 100%; height: 100%;"></div>
+
+
+<div id="chartContainer" style="width: 640px; height: 400px;"></div>
+
 
 <script type="text/javascript">
-            var chart;
-            var legend;
+        var chartData = [<?php foreach($products as $prod): ?>
+        {
+            name: "<?php echo $prod->getName() ?>",
+            value: <?php echo $prod->getQuantity() ?>
+        },
+    <?php endforeach;?>];
 
-            var chartData = [
-                <?php foreach($products as $prod): ?>
-                    {
-                        name: "<?php echo $prod->getName() ?>",
-                        value: <?php echo $prod->getQuantity() ?>
-                    },
-                <?php endforeach;?>
-             ];
 
-            AmCharts.ready(function () {
-                // SERIAL CHART
-                chart = new AmCharts.AmSerialChart();
-                chart.dataProvider = chartData;
-                chart.categoryField = "name";
-                chart.rotate = true;
-                chart.depth3D = 20;
-                chart.angle = 30;
+        window.onload = function () {
+            var chart = new AmCharts.AmSerialChart();
+            chart.dataProvider = chartData;
+            chart.categoryField = "name";
+            chart.marginTop = 15;
+            chart.marginLeft = 55;
+            chart.marginRight = 15;
+            chart.marginBottom = 80;
+            chart.angle = 30;
+            chart.depth3D = 15;
 
-                // AXES
-                // Category
-                var categoryAxis = chart.categoryAxis;
-                categoryAxis.gridPosition = "start";
-                categoryAxis.axisColor = "#DADADA";
-                categoryAxis.fillAlpha = 1;
-                categoryAxis.gridAlpha = 0;
-                categoryAxis.fillColor = "#FAFAFA";
+            var catAxis = chart.categoryAxis;
+            catAxis.gridCount = chartData.length;
+            catAxis.labelRotation = 90;
 
-                // value
-                var valueAxis = new AmCharts.ValueAxis();
-                valueAxis.axisColor = "#DADADA";
-                valueAxis.gridAlpha = 0.1;
-                chart.addValueAxis(valueAxis);
+            var graph = new AmCharts.AmGraph();
+            graph.balloonText = "[[category]]: [[value]]";
+            graph.valueField = "value"
+            graph.type = "column";
+            graph.lineAlpha = 0;
+            graph.fillAlphas = 0.8;
+            chart.addGraph(graph);
 
-                // GRAPH
-                var graph = new AmCharts.AmGraph();
-                graph.title = "Income";
-                graph.valueField = "value";
-                graph.type = "column";
-                graph.balloonText = "Quantity of [[category]]:[[value]]";
-                graph.lineAlpha = 0;
-                graph.fillColors = "#bf1c25";
-                graph.fillAlphas = 1;
-                chart.addGraph(graph);
-
-                // WRITE
-                chart.write("chartdiv");
-            });
-        </script>
-        
-        
-        
+            chart.write('chartContainer');
+        }
+    </script>
