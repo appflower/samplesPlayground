@@ -1,0 +1,13 @@
+product:
+  product_1:
+    name: 'Product one'
+    price: 16.1
+    quantity: 20
+  product_2:
+    name: 'Product two'
+    price: 99.0
+    quantity: 33
+  product_3:
+    name: 'Product three'
+    price: 50.0
+    quantity: 5
