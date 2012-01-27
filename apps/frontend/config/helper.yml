@@ -41,7 +41,7 @@ menu:
         item6:
           attributes:
             label: 'Many-to-Many relation'
-            url: /afCrmActivity/editActivity
+            url: /afGuardGroup/editGroup
             icon: /images/famfamfam/bullet_blue.png
         item7:
           attributes:
