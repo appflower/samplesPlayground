@@ -10,4 +10,7 @@
             <i:component column="0" module="afCrmStatus" name="listStatuses"/>
         </i:tab>
     </i:area>
+	<i:description><![CDATA[Another layout example. This one uses tabs and renders widgets in these. A tab can be split into several columns and may hold any number of widgets. 
+	A layout may cotain several tabs. This structure allows the creation of very complex, yet nicely organized views.
+	<br><a href="/studio#widget#frontend/pages/dashboard" target="_blank">Open in Studio</a>]]></i:description>
 </i:view>

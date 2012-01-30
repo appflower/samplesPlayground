@@ -6,4 +6,7 @@
         <i:component column="1" module="color" name="colorList"/>
         <i:component column="0" module="afCrmAccounts" name="listAccounts"/>
     </i:area>
+	<i:description><![CDATA[An example of a simple layout with two, evenly divided columns. Layouts may have several columns and may contain any number of widgets.
+	<br><a href="/studio#widget#frontend/pages/test" target="_blank">Open in Studio</a>]]></i:description>
+    
 </i:view>
