@@ -11,7 +11,7 @@
         <i:column label="No." name="id"/>
         <i:column filter="[type:string]" label="Subject" name="subject"/>
         <i:column filter="[type:string]" label="Account" name="account_id"/>
-        <i:column filter="[type:string]" label="Contact" name="contact_id"/>
+        <i:column filter="[class:ModelCriteriaFetcher,method:filterData,param:afCrmContact,dataIndex:afcrm_activity.contact_id]" label="Contact" name="contact_id"/>
         <i:column filter="[type:string]" label="Status" name="status_id"/>
         <i:column filter="[type:string]" label="Created by" name="created_by"/>
     </i:fields>

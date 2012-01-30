@@ -820,31 +820,31 @@ abstract class BaseafCrmOpportunity extends BaseObject  implements Persistent
 			$stmt = $con->prepare($sql);
 			foreach ($modifiedColumns as $identifier => $columnName) {
 				switch ($columnName) {
-					case '`ID`':
+					case '`ID`':						
 						$stmt->bindValue($identifier, $this->id, PDO::PARAM_INT);
 						break;
-					case '`NAME`':
+					case '`NAME`':						
 						$stmt->bindValue($identifier, $this->name, PDO::PARAM_STR);
 						break;
-					case '`AMOUNT`':
+					case '`AMOUNT`':						
 						$stmt->bindValue($identifier, $this->amount, PDO::PARAM_STR);
 						break;
-					case '`ACCOUNT_ID`':
+					case '`ACCOUNT_ID`':						
 						$stmt->bindValue($identifier, $this->account_id, PDO::PARAM_INT);
 						break;
-					case '`ASSIGNED_TO`':
+					case '`ASSIGNED_TO`':						
 						$stmt->bindValue($identifier, $this->assigned_to, PDO::PARAM_INT);
 						break;
-					case '`DESCRIPTION`':
+					case '`DESCRIPTION`':						
 						$stmt->bindValue($identifier, $this->description, PDO::PARAM_STR);
 						break;
-					case '`EXPECTED_CLOSEDATE`':
+					case '`EXPECTED_CLOSEDATE`':						
 						$stmt->bindValue($identifier, $this->expected_closedate, PDO::PARAM_STR);
 						break;
-					case '`CREATED_BY`':
+					case '`CREATED_BY`':						
 						$stmt->bindValue($identifier, $this->created_by, PDO::PARAM_INT);
 						break;
-					case '`CREATED_AT`':
+					case '`CREATED_AT`':						
 						$stmt->bindValue($identifier, $this->created_at, PDO::PARAM_STR);
 						break;
 				}

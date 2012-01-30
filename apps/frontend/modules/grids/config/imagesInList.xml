@@ -20,5 +20,7 @@
     <i:actions>
         <i:action iconCls="icon-plus" name="Add new product" popup="false" url="/product/edit"/>
     </i:actions>
-     <i:description><![CDATA[<a href="/studio#widget#frontend/grids/imagesInList" target="_blank">Open in Studio</a>]]></i:description>
+     <i:description><![CDATA[This grid is an example of how to display images in grids. Grids can render HTML content in any column, so they are able to render images as well. 
+	 <br/><a href="/studio#widget#frontend/grids/imagesInList" target="_blank">Open in Studio</a>]]></i:description>
+
 </i:view>

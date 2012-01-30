@@ -9,4 +9,6 @@ xmlns:i="http://www.appflower.com/schema/" type="layout">
         <i:component column="0" name="listmd" module="product" bindForm="0"></i:component>
         <i:component column="0" name="addmd" module="product"></i:component>
 </i:area>
+<i:description><![CDATA[The master-detail view provides a way to browse and manipulate a set of records at the same time. The list widget lists the records, while the edit widget lets you create new records or modify existing ones.
+Clicking any of the edit actions loads the given record into the edit widget for modification.<br><a href="/studio#widget#frontend/pages/md" target="_blank">Open in Studio</a>]]></i:description>
 </i:view>

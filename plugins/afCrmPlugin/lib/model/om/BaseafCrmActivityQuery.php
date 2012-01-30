@@ -154,7 +154,7 @@ abstract class BaseafCrmActivityQuery extends ModelCriteria
 	{
 		$sql = 'SELECT `ID`, `SUBJECT`, `ACCOUNT_ID`, `CONTACT_ID`, `STATUS_ID`, `CREATED_BY`, `DESCRIPTION`, `DUE_AT` FROM `afcrm_activity` WHERE `ID` = :p0';
 		try {
-			$stmt = $con->prepare($sql);
+			$stmt = $con->prepare($sql);			
 			$stmt->bindValue(':p0', $key, PDO::PARAM_INT);
 			$stmt->execute();
 		} catch (Exception $e) {

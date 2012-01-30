@@ -409,10 +409,10 @@ abstract class Basecolor extends BaseObject  implements Persistent
 			$stmt = $con->prepare($sql);
 			foreach ($modifiedColumns as $identifier => $columnName) {
 				switch ($columnName) {
-					case '`ID`':
+					case '`ID`':						
 						$stmt->bindValue($identifier, $this->id, PDO::PARAM_INT);
 						break;
-					case '`NAME`':
+					case '`NAME`':						
 						$stmt->bindValue($identifier, $this->name, PDO::PARAM_STR);
 						break;
 				}

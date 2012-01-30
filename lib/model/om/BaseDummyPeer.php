@@ -26,19 +26,25 @@ abstract class BaseDummyPeer {
 	const TM_CLASS = 'DummyTableMap';
 
 	/** The total number of columns. */
-	const NUM_COLUMNS = 2;
+	const NUM_COLUMNS = 4;
 
 	/** The number of lazy-loaded columns. */
 	const NUM_LAZY_LOAD_COLUMNS = 0;
 
 	/** The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS) */
-	const NUM_HYDRATE_COLUMNS = 2;
+	const NUM_HYDRATE_COLUMNS = 4;
 
 	/** the column name for the ID field */
 	const ID = 'dummy.ID';
 
 	/** the column name for the COMBO field */
 	const COMBO = 'dummy.COMBO';
+
+	/** the column name for the FOO field */
+	const FOO = 'dummy.FOO';
+
+	/** the column name for the BAR field */
+	const BAR = 'dummy.BAR';
 
 	/** The default string format for model objects of the related table **/
 	const DEFAULT_STRING_FORMAT = 'YAML';
@@ -59,12 +65,12 @@ abstract class BaseDummyPeer {
 	 * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
 	 */
 	protected static $fieldNames = array (
-		BasePeer::TYPE_PHPNAME => array ('Id', 'Combo', ),
-		BasePeer::TYPE_STUDLYPHPNAME => array ('id', 'combo', ),
-		BasePeer::TYPE_COLNAME => array (self::ID, self::COMBO, ),
-		BasePeer::TYPE_RAW_COLNAME => array ('ID', 'COMBO', ),
-		BasePeer::TYPE_FIELDNAME => array ('id', 'combo', ),
-		BasePeer::TYPE_NUM => array (0, 1, )
+		BasePeer::TYPE_PHPNAME => array ('Id', 'Combo', 'Foo', 'Bar', ),
+		BasePeer::TYPE_STUDLYPHPNAME => array ('id', 'combo', 'foo', 'bar', ),
+		BasePeer::TYPE_COLNAME => array (self::ID, self::COMBO, self::FOO, self::BAR, ),
+		BasePeer::TYPE_RAW_COLNAME => array ('ID', 'COMBO', 'FOO', 'BAR', ),
+		BasePeer::TYPE_FIELDNAME => array ('id', 'combo', 'foo', 'bar', ),
+		BasePeer::TYPE_NUM => array (0, 1, 2, 3, )
 	);
 
 	/**
@@ -74,12 +80,12 @@ abstract class BaseDummyPeer {
 	 * e.g. self::$fieldNames[BasePeer::TYPE_PHPNAME]['Id'] = 0
 	 */
 	protected static $fieldKeys = array (
-		BasePeer::TYPE_PHPNAME => array ('Id' => 0, 'Combo' => 1, ),
-		BasePeer::TYPE_STUDLYPHPNAME => array ('id' => 0, 'combo' => 1, ),
-		BasePeer::TYPE_COLNAME => array (self::ID => 0, self::COMBO => 1, ),
-		BasePeer::TYPE_RAW_COLNAME => array ('ID' => 0, 'COMBO' => 1, ),
-		BasePeer::TYPE_FIELDNAME => array ('id' => 0, 'combo' => 1, ),
-		BasePeer::TYPE_NUM => array (0, 1, )
+		BasePeer::TYPE_PHPNAME => array ('Id' => 0, 'Combo' => 1, 'Foo' => 2, 'Bar' => 3, ),
+		BasePeer::TYPE_STUDLYPHPNAME => array ('id' => 0, 'combo' => 1, 'foo' => 2, 'bar' => 3, ),
+		BasePeer::TYPE_COLNAME => array (self::ID => 0, self::COMBO => 1, self::FOO => 2, self::BAR => 3, ),
+		BasePeer::TYPE_RAW_COLNAME => array ('ID' => 0, 'COMBO' => 1, 'FOO' => 2, 'BAR' => 3, ),
+		BasePeer::TYPE_FIELDNAME => array ('id' => 0, 'combo' => 1, 'foo' => 2, 'bar' => 3, ),
+		BasePeer::TYPE_NUM => array (0, 1, 2, 3, )
 	);
 
 	/**
@@ -153,9 +159,13 @@ abstract class BaseDummyPeer {
 		if (null === $alias) {
 			$criteria->addSelectColumn(DummyPeer::ID);
 			$criteria->addSelectColumn(DummyPeer::COMBO);
+			$criteria->addSelectColumn(DummyPeer::FOO);
+			$criteria->addSelectColumn(DummyPeer::BAR);
 		} else {
 			$criteria->addSelectColumn($alias . '.ID');
 			$criteria->addSelectColumn($alias . '.COMBO');
+			$criteria->addSelectColumn($alias . '.FOO');
+			$criteria->addSelectColumn($alias . '.BAR');
 		}
 	}
 

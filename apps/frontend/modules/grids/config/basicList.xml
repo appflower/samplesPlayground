@@ -21,5 +21,6 @@
     <i:actions>
         <i:action iconCls="icon-plus" name="New Deal" url="/afCrmDeals/editDeal"/>
     </i:actions>
-     <i:description><![CDATA[<a href="/studio#widget#frontend/grids/basicList" target="_blank">Open in Studio</a>]]></i:description>
+     <i:description><![CDATA[The example displays a grid with the most widely used features enabled: sorting, filtering (searching) and paging. 
+	You may sort or filter the list by any of its columns. Pager controls are provided for efficient browing.<br><a href="/studio#widget#frontend/grids/basicList" target="_blank">Open in Studio</a>]]></i:description>
 </i:view>

@@ -1,6 +1,6 @@
 project:
   name: 'Studio playground'
-  url: ''
+  url: 'http://myproject.local'
   description: 'This is the Studio''s playground, will be used for new projects'
   autodeploy: true
   template: desktop

@@ -8,9 +8,13 @@
  *
  * @method     DummyQuery orderById($order = Criteria::ASC) Order by the id column
  * @method     DummyQuery orderByCombo($order = Criteria::ASC) Order by the combo column
+ * @method     DummyQuery orderByFoo($order = Criteria::ASC) Order by the foo column
+ * @method     DummyQuery orderByBar($order = Criteria::ASC) Order by the bar column
  *
  * @method     DummyQuery groupById() Group by the id column
  * @method     DummyQuery groupByCombo() Group by the combo column
+ * @method     DummyQuery groupByFoo() Group by the foo column
+ * @method     DummyQuery groupByBar() Group by the bar column
  *
  * @method     DummyQuery leftJoin($relation) Adds a LEFT JOIN clause to the query
  * @method     DummyQuery rightJoin($relation) Adds a RIGHT JOIN clause to the query
@@ -21,9 +25,13 @@
  *
  * @method     Dummy findOneById(int $id) Return the first Dummy filtered by the id column
  * @method     Dummy findOneByCombo(string $combo) Return the first Dummy filtered by the combo column
+ * @method     Dummy findOneByFoo(string $foo) Return the first Dummy filtered by the foo column
+ * @method     Dummy findOneByBar(string $bar) Return the first Dummy filtered by the bar column
  *
  * @method     array findById(int $id) Return Dummy objects filtered by the id column
  * @method     array findByCombo(string $combo) Return Dummy objects filtered by the combo column
+ * @method     array findByFoo(string $foo) Return Dummy objects filtered by the foo column
+ * @method     array findByBar(string $bar) Return Dummy objects filtered by the bar column
  *
  * @package    propel.generator.lib.model.om
  */
@@ -112,9 +120,9 @@ abstract class BaseDummyQuery extends ModelCriteria
 	 */
 	protected function findPkSimple($key, $con)
 	{
-		$sql = 'SELECT `ID`, `COMBO` FROM `dummy` WHERE `ID` = :p0';
+		$sql = 'SELECT `ID`, `COMBO`, `FOO`, `BAR` FROM `dummy` WHERE `ID` = :p0';
 		try {
-			$stmt = $con->prepare($sql);
+			$stmt = $con->prepare($sql);			
 			$stmt->bindValue(':p0', $key, PDO::PARAM_INT);
 			$stmt->execute();
 		} catch (Exception $e) {
@@ -249,6 +257,62 @@ abstract class BaseDummyQuery extends ModelCriteria
 			}
 		}
 		return $this->addUsingAlias(DummyPeer::COMBO, $combo, $comparison);
+	}
+
+	/**
+	 * Filter the query on the foo column
+	 *
+	 * Example usage:
+	 * <code>
+	 * $query->filterByFoo('fooValue');   // WHERE foo = 'fooValue'
+	 * $query->filterByFoo('%fooValue%'); // WHERE foo LIKE '%fooValue%'
+	 * </code>
+	 *
+	 * @param     string $foo The value to use as filter.
+	 *              Accepts wildcards (* and % trigger a LIKE)
+	 * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+	 *
+	 * @return    DummyQuery The current query, for fluid interface
+	 */
+	public function filterByFoo($foo = null, $comparison = null)
+	{
+		if (null === $comparison) {
+			if (is_array($foo)) {
+				$comparison = Criteria::IN;
+			} elseif (preg_match('/[\%\*]/', $foo)) {
+				$foo = str_replace('*', '%', $foo);
+				$comparison = Criteria::LIKE;
+			}
+		}
+		return $this->addUsingAlias(DummyPeer::FOO, $foo, $comparison);
+	}
+
+	/**
+	 * Filter the query on the bar column
+	 *
+	 * Example usage:
+	 * <code>
+	 * $query->filterByBar('fooValue');   // WHERE bar = 'fooValue'
+	 * $query->filterByBar('%fooValue%'); // WHERE bar LIKE '%fooValue%'
+	 * </code>
+	 *
+	 * @param     string $bar The value to use as filter.
+	 *              Accepts wildcards (* and % trigger a LIKE)
+	 * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+	 *
+	 * @return    DummyQuery The current query, for fluid interface
+	 */
+	public function filterByBar($bar = null, $comparison = null)
+	{
+		if (null === $comparison) {
+			if (is_array($bar)) {
+				$comparison = Criteria::IN;
+			} elseif (preg_match('/[\%\*]/', $bar)) {
+				$bar = str_replace('*', '%', $bar);
+				$comparison = Criteria::LIKE;
+			}
+		}
+		return $this->addUsingAlias(DummyPeer::BAR, $bar, $comparison);
 	}
 
 	/**

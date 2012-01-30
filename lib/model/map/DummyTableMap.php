@@ -40,6 +40,8 @@ class DummyTableMap extends TableMap
 		// columns
 		$this->addPrimaryKey('ID', 'Id', 'INTEGER', true, null, null);
 		$this->addColumn('COMBO', 'Combo', 'VARCHAR', false, 255, null);
+		$this->addColumn('FOO', 'Foo', 'VARCHAR', false, 255, null);
+		$this->addColumn('BAR', 'Bar', 'VARCHAR', false, 255, null);
 		// validators
 	} // initialize()
 

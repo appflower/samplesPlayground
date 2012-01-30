@@ -13,9 +13,9 @@ all:
     class:        sfPropelDatabase
     param:
       classname:  PropelPDO
-      dsn:        mysql:dbname=appflower_studio;host=localhost
+      dsn:        mysql:dbname=appflower_samples;host=localhost
       username:   root
-      password:   root
+      password:   
       encoding:   utf8
       persistent: true
       pooling:    true

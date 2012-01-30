@@ -18,5 +18,5 @@
     <i:actions>
         <i:action iconCls="icon-plus" name="Add new row" popup="false" url="/color/colorEdit"/>
     </i:actions>    
-    <i:description><![CDATA[<a href="/studio#widget#frontend/grids/bgColorsList" target="_blank">Open in Studio</a>]]></i:description>
+    <i:description><![CDATA[This example shows how to change the background colors of a grid's rows. You can set a different background color for each row.<br><a href="/studio#widget#frontend/grids/bgColorsList" target="_blank">Open in Studio</a>]]></i:description>
 </i:view>

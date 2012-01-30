@@ -6,5 +6,6 @@
         <i:param name="html">{content}</i:param>
     </i:params>
     
-    <i:description><![CDATA[<a href="/studio#widget#frontend/chart/index" target="_blank">Open in Studio</a>]]></i:description>
+    <i:description><![CDATA[This example displays a bar chart using a HTML View. The chart itself is produced via AMCharts library. Any JS / Flash library could be used here, as any 
+	custom HTML / JS / Flash can be rendered in a HTML View.<br><a href="/studio#widget#frontend/chart/index" target="_blank">Open in Studio</a>]]></i:description>
 </i:view>

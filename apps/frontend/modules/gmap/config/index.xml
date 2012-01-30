@@ -6,5 +6,5 @@
         <i:param name="html">{content}</i:param>
     </i:params>
     
-    <i:description><![CDATA[<a href="/studio#widget#frontend/gmap/index" target="_blank">Open in Studio</a>]]></i:description>
+    <i:description><![CDATA[This is an example of Google Maps integration. A HTML view was used to render the Google Maps content. Such view can render any custom HTML.<br><a href="/studio#widget#frontend/gmap/index" target="_blank">Open in Studio</a>]]></i:description>
 </i:view>

@@ -37,6 +37,18 @@ abstract class BaseDummy extends BaseObject  implements Persistent
 	protected $combo;
 
 	/**
+	 * The value for the foo field.
+	 * @var        string
+	 */
+	protected $foo;
+
+	/**
+	 * The value for the bar field.
+	 * @var        string
+	 */
+	protected $bar;
+
+	/**
 	 * Flag to prevent endless save loop, if this object is referenced
 	 * by another object which falls in this transaction.
 	 * @var        boolean
@@ -68,6 +80,26 @@ abstract class BaseDummy extends BaseObject  implements Persistent
 	public function getCombo()
 	{
 		return $this->combo;
+	}
+
+	/**
+	 * Get the [foo] column value.
+	 * 
+	 * @return     string
+	 */
+	public function getFoo()
+	{
+		return $this->foo;
+	}
+
+	/**
+	 * Get the [bar] column value.
+	 * 
+	 * @return     string
+	 */
+	public function getBar()
+	{
+		return $this->bar;
 	}
 
 	/**
@@ -111,6 +143,46 @@ abstract class BaseDummy extends BaseObject  implements Persistent
 	} // setCombo()
 
 	/**
+	 * Set the value of [foo] column.
+	 * 
+	 * @param      string $v new value
+	 * @return     Dummy The current object (for fluent API support)
+	 */
+	public function setFoo($v)
+	{
+		if ($v !== null) {
+			$v = (string) $v;
+		}
+
+		if ($this->foo !== $v) {
+			$this->foo = $v;
+			$this->modifiedColumns[] = DummyPeer::FOO;
+		}
+
+		return $this;
+	} // setFoo()
+
+	/**
+	 * Set the value of [bar] column.
+	 * 
+	 * @param      string $v new value
+	 * @return     Dummy The current object (for fluent API support)
+	 */
+	public function setBar($v)
+	{
+		if ($v !== null) {
+			$v = (string) $v;
+		}
+
+		if ($this->bar !== $v) {
+			$this->bar = $v;
+			$this->modifiedColumns[] = DummyPeer::BAR;
+		}
+
+		return $this;
+	} // setBar()
+
+	/**
 	 * Indicates whether the columns in this object are only set to default values.
 	 *
 	 * This method can be used in conjunction with isModified() to indicate whether an object is both
@@ -144,6 +216,8 @@ abstract class BaseDummy extends BaseObject  implements Persistent
 
 			$this->id = ($row[$startcol + 0] !== null) ? (int) $row[$startcol + 0] : null;
 			$this->combo = ($row[$startcol + 1] !== null) ? (string) $row[$startcol + 1] : null;
+			$this->foo = ($row[$startcol + 2] !== null) ? (string) $row[$startcol + 2] : null;
+			$this->bar = ($row[$startcol + 3] !== null) ? (string) $row[$startcol + 3] : null;
 			$this->resetModified();
 
 			$this->setNew(false);
@@ -152,7 +226,7 @@ abstract class BaseDummy extends BaseObject  implements Persistent
 				$this->ensureConsistency();
 			}
 
-			return $startcol + 2; // 2 = DummyPeer::NUM_HYDRATE_COLUMNS.
+			return $startcol + 4; // 4 = DummyPeer::NUM_HYDRATE_COLUMNS.
 
 		} catch (Exception $e) {
 			throw new PropelException("Error populating Dummy object", $e);
@@ -398,6 +472,12 @@ abstract class BaseDummy extends BaseObject  implements Persistent
 		if ($this->isColumnModified(DummyPeer::COMBO)) {
 			$modifiedColumns[':p' . $index++]  = '`COMBO`';
 		}
+		if ($this->isColumnModified(DummyPeer::FOO)) {
+			$modifiedColumns[':p' . $index++]  = '`FOO`';
+		}
+		if ($this->isColumnModified(DummyPeer::BAR)) {
+			$modifiedColumns[':p' . $index++]  = '`BAR`';
+		}
 
 		$sql = sprintf(
 			'INSERT INTO `dummy` (%s) VALUES (%s)',
@@ -409,11 +489,17 @@ abstract class BaseDummy extends BaseObject  implements Persistent
 			$stmt = $con->prepare($sql);
 			foreach ($modifiedColumns as $identifier => $columnName) {
 				switch ($columnName) {
-					case '`ID`':
+					case '`ID`':						
 						$stmt->bindValue($identifier, $this->id, PDO::PARAM_INT);
 						break;
-					case '`COMBO`':
+					case '`COMBO`':						
 						$stmt->bindValue($identifier, $this->combo, PDO::PARAM_STR);
+						break;
+					case '`FOO`':						
+						$stmt->bindValue($identifier, $this->foo, PDO::PARAM_STR);
+						break;
+					case '`BAR`':						
+						$stmt->bindValue($identifier, $this->bar, PDO::PARAM_STR);
 						break;
 				}
 			}
@@ -551,6 +637,12 @@ abstract class BaseDummy extends BaseObject  implements Persistent
 			case 1:
 				return $this->getCombo();
 				break;
+			case 2:
+				return $this->getFoo();
+				break;
+			case 3:
+				return $this->getBar();
+				break;
 			default:
 				return null;
 				break;
@@ -581,6 +673,8 @@ abstract class BaseDummy extends BaseObject  implements Persistent
 		$result = array(
 			$keys[0] => $this->getId(),
 			$keys[1] => $this->getCombo(),
+			$keys[2] => $this->getFoo(),
+			$keys[3] => $this->getBar(),
 		);
 		return $result;
 	}
@@ -618,6 +712,12 @@ abstract class BaseDummy extends BaseObject  implements Persistent
 			case 1:
 				$this->setCombo($value);
 				break;
+			case 2:
+				$this->setFoo($value);
+				break;
+			case 3:
+				$this->setBar($value);
+				break;
 		} // switch()
 	}
 
@@ -644,6 +744,8 @@ abstract class BaseDummy extends BaseObject  implements Persistent
 
 		if (array_key_exists($keys[0], $arr)) $this->setId($arr[$keys[0]]);
 		if (array_key_exists($keys[1], $arr)) $this->setCombo($arr[$keys[1]]);
+		if (array_key_exists($keys[2], $arr)) $this->setFoo($arr[$keys[2]]);
+		if (array_key_exists($keys[3], $arr)) $this->setBar($arr[$keys[3]]);
 	}
 
 	/**
@@ -657,6 +759,8 @@ abstract class BaseDummy extends BaseObject  implements Persistent
 
 		if ($this->isColumnModified(DummyPeer::ID)) $criteria->add(DummyPeer::ID, $this->id);
 		if ($this->isColumnModified(DummyPeer::COMBO)) $criteria->add(DummyPeer::COMBO, $this->combo);
+		if ($this->isColumnModified(DummyPeer::FOO)) $criteria->add(DummyPeer::FOO, $this->foo);
+		if ($this->isColumnModified(DummyPeer::BAR)) $criteria->add(DummyPeer::BAR, $this->bar);
 
 		return $criteria;
 	}
@@ -720,6 +824,8 @@ abstract class BaseDummy extends BaseObject  implements Persistent
 	public function copyInto($copyObj, $deepCopy = false, $makeNew = true)
 	{
 		$copyObj->setCombo($this->getCombo());
+		$copyObj->setFoo($this->getFoo());
+		$copyObj->setBar($this->getBar());
 		if ($makeNew) {
 			$copyObj->setNew(true);
 			$copyObj->setId(NULL); // this is a auto-increment column, so set to default value
@@ -771,6 +877,8 @@ abstract class BaseDummy extends BaseObject  implements Persistent
 	{
 		$this->id = null;
 		$this->combo = null;
+		$this->foo = null;
+		$this->bar = null;
 		$this->alreadyInSave = false;
 		$this->alreadyInValidation = false;
 		$this->clearAllReferences();

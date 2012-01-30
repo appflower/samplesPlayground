@@ -16,11 +16,15 @@ abstract class BaseDummyForm extends BaseFormPropel
     $this->setWidgets(array(
       'id'    => new sfWidgetFormInputHidden(),
       'combo' => new sfWidgetFormInputText(),
+      'foo'   => new sfWidgetFormInputText(),
+      'bar'   => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(
       'id'    => new sfValidatorChoice(array('choices' => array($this->getObject()->getId()), 'empty_value' => $this->getObject()->getId(), 'required' => false)),
       'combo' => new sfValidatorString(array('max_length' => 255, 'required' => false)),
+      'foo'   => new sfValidatorString(array('max_length' => 255, 'required' => false)),
+      'bar'   => new sfValidatorString(array('max_length' => 255, 'required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('dummy[%s]');

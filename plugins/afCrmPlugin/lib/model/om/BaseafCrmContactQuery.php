@@ -182,7 +182,7 @@ abstract class BaseafCrmContactQuery extends ModelCriteria
 	{
 		$sql = 'SELECT `ID`, `ACCOUNT_ID`, `FIRST_NAME`, `LAST_NAME`, `TITLE`, `EMAIL`, `PHONE_WORK`, `PHONE_MOBILE`, `SKYPE`, `MSN`, `ADDRESS_LINE1`, `ADDRESS_LINE2`, `CITY`, `ZIPCODE`, `STATE`, `COUNTRY` FROM `afcrm_contact` WHERE `ID` = :p0';
 		try {
-			$stmt = $con->prepare($sql);
+			$stmt = $con->prepare($sql);			
 			$stmt->bindValue(':p0', $key, PDO::PARAM_INT);
 			$stmt->execute();
 		} catch (Exception $e) {
