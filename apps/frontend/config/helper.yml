@@ -140,7 +140,18 @@ menu:
         item20:
           attributes:
             label: 'Bar-chart'
-            url: '/chart/sample'
+            url: '/chart'
+            icon: /images/famfamfam/bullet_blue.png
+    item21:
+      attributes:
+        label: 'Google Map'
+        url: '#'
+        icon: /images/famfamfam/folder.png
+      children:
+        item22:
+          attributes:
+            label: 'Simple Google Map'
+            url: '/gmap'
             icon: /images/famfamfam/bullet_blue.png
 links:
   dashboard:

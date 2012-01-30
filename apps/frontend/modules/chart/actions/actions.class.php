@@ -15,14 +15,14 @@ class chartActions extends sfActions
   *
   * @param sfRequest $request A request object
   */
-  public function executeChart(sfWebRequest $request)
+  public function executeIndex(sfWebRequest $request)
   {
-    $this->products = ProductPeer::doSelect(new Criteria());
+    $html = '<iframe src="/chart/sample" width="100%" height="100%" frameborder="0"></iframe>';
+    $this->content = $html;
   }
   
   public function executeSample(sfWebRequest $request)
   { 
-    $html = '<iframe src="/chart/chart" width="100%" height="100%" frameborder="0"></iframe>';
-    $this->content = $html;
+      $this->products = ProductPeer::doSelect(new Criteria());
   }
 }

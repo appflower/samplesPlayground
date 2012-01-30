@@ -1,2 +1,2 @@
-chartSuccess:
+sampleSuccess:
   javascripts:    [/js/amcharts/amcharts.js, /js/amcharts/raphael.js]
