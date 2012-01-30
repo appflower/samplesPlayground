@@ -129,7 +129,7 @@ menu:
         item18:
           attributes:
             label: 'Grids as JSON'
-            handler: 'function (b,e) {afApp.load("/afCrmDeals/listDeals?widget_load=false&af_format=json","page");}'
+            handler: 'function (b,e) {afApp.load("/rest/restList?widget_load=false&af_format=json","page");}'
             icon: /images/famfamfam/bullet_blue.png
     item19:
       attributes:
