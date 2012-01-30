@@ -17,4 +17,7 @@
 			<i:window title="Add Item [Quick Widget]" component="/product/edit" className="productPeer" methodName="getAll" width="900" />
         </i:field>
     </i:fields>
+	<i:description><![CDATA[This one shows how to add a special button to a combo field that allows you to add another option to it, if that option is missing. The button opens an edit widget which creates a record in the related table. 
+	Once this is done, the new option appears in the combo.<br><a href="/studio#widget#frontend/forms/comboNew" target="_blank">Open in Studio</a>]]></i:description>
+    
 </i:view>
