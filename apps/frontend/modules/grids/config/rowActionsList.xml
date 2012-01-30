@@ -26,5 +26,5 @@
         <i:action confirmMsg="Are you sure to delete selected users?" forceSelection="true" icon="/images/famfamfam/cross.png" name="Delete Selected" post="true" url="/afGuardUser/massDelete"/>
         <i:action confirmMsg="Are you sure to delete all users?" forceSelection="false" icon="/images/famfamfam/cross.png" name="Delete All" post="true" url="/afGuardUser/massDelete"/>
     </i:moreactions>
-    <i:description><![CDATA[This widget lists the basic information about all the users of the system. You can add, edit or delete the users of the system.]]></i:description>
+    <i:description><![CDATA[This widget lists the basic information about all the users of the system. You can add, edit or delete the users of the system.<br><br><a href="/studio#widget#frontend/grids/rowActionsList" target="_blank">Open in Studio</a>]]></i:description>
 </i:view>

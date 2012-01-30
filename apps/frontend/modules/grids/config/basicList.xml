@@ -21,4 +21,5 @@
     <i:actions>
         <i:action iconCls="icon-plus" name="New Deal" url="/afCrmDeals/editDeal"/>
     </i:actions>
+     <i:description><![CDATA[<a href="/studio#widget#frontend/grids/basicList" target="_blank">Open in Studio</a>]]></i:description>
 </i:view>

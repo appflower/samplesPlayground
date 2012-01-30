@@ -27,5 +27,5 @@
         <i:action confirmMsg="Are you sure to delete selected roles?" icon="/images/famfamfam/cross.png" name="Delete Selected" post="true" url="/afGuardGroup/massDelete"/>
         <i:action confirmMsg="Are you sure to delete all roles?" forceSelection="false" icon="/images/famfamfam/cross.png" name="Delete All" post="true" url="/afGuardGroup/massDelete"/>
     </i:moreactions>
-    <i:description><![CDATA[Permission groups can be created to control user previliges. A permission group can be assigned a selected number of site permissions. Each user can be assigned a set of permission groups and the user\'s access right is determined by the permission groups assigned.]]></i:description>
+    <i:description><![CDATA[Permission groups can be created to control user previliges. A permission group can be assigned a selected number of site permissions. Each user can be assigned a set of permission groups and the user\'s access right is determined by the permission groups assigned.<br><br><a href="/studio#widget#frontend/grids/postableList" target="_blank">Open in Studio</a>]]></i:description>
 </i:view>

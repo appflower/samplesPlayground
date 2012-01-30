@@ -17,5 +17,6 @@
     </i:rowactions>
     <i:actions>
         <i:action iconCls="icon-plus" name="Add new row" popup="false" url="/color/colorEdit"/>
-    </i:actions>
+    </i:actions>    
+    <i:description><![CDATA[<a href="/studio#widget#frontend/grids/bgColorsList" target="_blank">Open in Studio</a>]]></i:description>
 </i:view>

@@ -5,4 +5,6 @@
     <i:params>
         <i:param name="html">{content}</i:param>
     </i:params>
+    
+    <i:description><![CDATA[<a href="/studio#widget#frontend/gmap/index" target="_blank">Open in Studio</a>]]></i:description>
 </i:view>
