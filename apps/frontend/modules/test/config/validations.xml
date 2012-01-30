@@ -29,4 +29,6 @@
             </i:validator>
         </i:field>
     </i:fields>
+	<i:description><![CDATA[The examples displays a form with various input validators attached: string, number, mandatory and pattern. This is an example of user input validation.<br><a href="/studio#widget#frontend/forms/validations" target="_blank">Open in Studio</a>]]></i:description>
+    
 </i:view>
