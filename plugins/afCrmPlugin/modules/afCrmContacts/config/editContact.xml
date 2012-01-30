@@ -65,6 +65,8 @@
             <i:help>Country of origin</i:help>
         </i:field>
     </i:fields>
+	<i:description><![CDATA[Another example of edit view. In this case form fields are aligned horizontally, in multiple columns. The example shows how to create such forms.<br><a href="/studio#widget#frontend/forms/floatedForm" target="_blank">Open in Studio</a>]]></i:description>
+    
     <i:grouping title="Contact Person Information">
         <i:set float="true" title="Contact Person Information">
             <i:ref to="account_id"/>
