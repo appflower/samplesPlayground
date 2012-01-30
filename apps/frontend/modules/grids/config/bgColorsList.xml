@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<i:view xmlns:i="http://www.appflower.com/schema/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="list" xsi:schemaLocation="http://www.appflower.com/schema/appflower.xsd">
+    <i:title><![CDATA[List with background colors]]></i:title>
+    <i:datasource modelName="color" type="orm">
+        <i:class>ModelCriteriaFetcher</i:class>
+        <i:method name="getDataForList">
+            <i:param name="modelName">color</i:param>
+        </i:method>
+    </i:datasource>
+    <i:fields remoteFilter="true" remoteSort="true">
+        <i:column filter="[type:numeric,dataIndex:color.id]" label="Id" name="id"/>
+        <i:column filter="[type:string,dataIndex:color.name]" label="Name" name="name"/>
+    </i:fields>
+    <i:rowactions>
+        <i:action iconCls="icon-edit" name="edit" url="/color/colorEdit"/>
+        <i:action confirm="true" iconCls="icon-delete" name="delete" url="/color/delete"/>
+    </i:rowactions>
+    <i:actions>
+        <i:action iconCls="icon-plus" name="Add new row" popup="false" url="/color/colorEdit"/>
+    </i:actions>
+</i:view>

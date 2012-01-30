@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<i:view xmlns:i="http://www.appflower.com/schema/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="list" xsi:schemaLocation="http://www.appflower.com/schema/appflower.xsd">
+    <i:title><![CDATA[Basic List]]></i:title>
+    <i:datasource modelName="afCrmOpportunity" type="orm">
+        <i:class>ModelCriteriaFetcher</i:class>
+        <i:method name="getDataForList">
+            <i:param name="modelName">afCrmOpportunity</i:param>
+        </i:method>
+    </i:datasource>
+    <i:fields remoteFilter="true" remoteSort="true">
+        <i:column label="No." name="id"/>
+        <i:column filter="[type:string]" label="Name" name="name"/>
+        <i:column filter="[type:numeric]" label="Amount" name="amount"/>
+        <i:column filter="[class:ModelCriteriaFetcher,method:filterData,param:afCrmAccount,dataIndex:afcrm_opportunity.account_id]" label="Account" name="account_id"/>
+        <i:column filter="[class:ModelCriteriaFetcher,method:filterData,param:afCrmContact,dataIndex:afcrm_opportunity.assigned_to]" label="Assigned" name="assigned_to"/>
+        <i:column filter="[type:date]" label="Dute at" name="expected_closedate"/>
+    </i:fields>
+    <i:rowactions>
+        <i:action iconCls="icon-edit" name="edit" url="/afCrmDeals/editDeal"/>
+    </i:rowactions>
+    <i:actions>
+        <i:action iconCls="icon-plus" name="New Deal" url="/afCrmDeals/editDeal"/>
+    </i:actions>
+</i:view>

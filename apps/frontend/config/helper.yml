@@ -72,27 +72,27 @@ menu:
         item9:
           attributes:
             label: 'Basic List: sorting, filters, paging'
-            url: /afCrmDeals/listDeals
+            url: /grids/basicList
             icon: /images/famfamfam/bullet_blue.png
         item10:
           attributes:
             label: 'Row Actions'
-            url: /afGuardUser/listUsers
+            url: /grids/rowActionsList
             icon: /images/famfamfam/bullet_blue.png
         item11:
           attributes:
             label: 'More Actions'
-            url: /afGuardGroup/listGroups
+            url: /grids/moreActionsList
             icon: /images/famfamfam/bullet_blue.png
         item12:
           attributes:
             label: 'Images in Lists'
-            url: /product/list
+            url: /grids/imagesInList
             icon: /images/famfamfam/bullet_blue.png
         item13:
           attributes:
             label: 'Postable List'
-            url: /afGuardGroup/listGroups
+            url: /grids/postableList
             icon: /images/famfamfam/bullet_blue.png
         item18:
           attributes:
@@ -101,8 +101,8 @@ menu:
             icon: /images/famfamfam/bullet_blue.png
         item22:
           attributes:
-            label: 'List with bg colors'
-            url: /color/colorList
+            label: 'List with background colors'
+            url: /grids/bgColorsList
             icon: /images/famfamfam/bullet_blue.png
     item14:
       attributes:
