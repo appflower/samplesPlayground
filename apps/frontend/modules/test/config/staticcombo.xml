@@ -21,4 +21,6 @@
             </i:validator>
         </i:field>
     </i:fields>
+	<i:description><![CDATA[The example shows how to specify the items of a combo field statically (manually). <br><a href="/studio#widget#frontend/forms/staticCombo" target="_blank">Open in Studio</a>]]></i:description>
+    
 </i:view>
