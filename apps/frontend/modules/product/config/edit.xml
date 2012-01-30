@@ -42,7 +42,7 @@
 	     </i:field>
     </i:fields>
     <i:description><![CDATA[This is an example of form field grouping. The form implements two field-sets, and renders them as tabs. 
-	This allows easy navigation and makes the form well organized.<br><a href="/studio#widget#frontend/forms/fieldSets" target="_blank">Open in Studio</a>]]></i:description>
+	This allows easy navigation and makes the form well organized. This also an example of file uploads (see the second tab). <br><a href="/studio#widget#frontend/forms/fieldSets" target="_blank">Open in Studio</a>]]></i:description>
     
     <i:grouping>
         <i:set title="Product Information" tabtitle="Product Information">
