@@ -62,6 +62,8 @@
             <i:help>Expiration date</i:help>
         </i:field>
     </i:fields>
+	<i:description><![CDATA[This is an example of a bit more advanced form (edit view). It uses different kind of fields: input, combo, textarea and date selector. The form also 
+	features a field-set, and therefore it is an example of field grouping too.<br><a href="/studio#widget#frontend/forms/variousFields" target="_blank">Open in Studio</a>]]></i:description>
     <i:grouping>
         <i:set title="Activity Information">
             <i:ref to="subject"/>
