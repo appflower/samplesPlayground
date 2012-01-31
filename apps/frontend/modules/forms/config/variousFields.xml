@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<i:view xmlns:i="http://www.appflower.com/schema/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="edit" xsi:schemaLocation="http://www.appflower.com/schema/appflower.xsd">
+    <i:title><![CDATA[Activity Details]]></i:title>
+    <i:datasource type="orm">
+        <i:class>afCrmActivityPeer</i:class>
+        <i:method name="retrieveByPk">
+            <i:param name="id">{id}</i:param>
+        </i:method>
+    </i:datasource>
+    <i:fields url="forms/variousFields?id={id}">
+        <i:field label="Subject" name="subject" value="{subject}">
+            <i:help>What is this activity about?</i:help>
+            <i:validator name="immValidatorRequired"/>
+            <i:validator name="sfValidatorString">
+                <i:param name="min_length">2</i:param>
+            </i:validator>
+        </i:field>
+        <i:field label="Account" name="account_id" selected="{account_id}" type="combo">
+            <i:value type="orm">
+                <i:class>ModelCriteriaFetcher</i:class>
+                <i:method name="getDataForComboWidget">
+                    <i:param name="does_not_matter">afCrmAccount</i:param>
+                </i:method>
+            </i:value>
+            <i:help>The related partner</i:help>
+            <i:validator name="immValidatorRequired"/>
+        </i:field>
+        <i:field label="Contact" name="contact_id" selected="{contact_id}" type="combo">
+            <i:value type="orm">
+                <i:class>ModelCriteriaFetcher</i:class>
+                <i:method name="getDataForComboWidget">
+                    <i:param name="does_not_matter">afCrmContact</i:param>
+                </i:method>
+            </i:value>
+            <i:help>The related contact person</i:help>
+            <i:validator name="immValidatorRequired"/>
+        </i:field>
+        <i:field label="Status" name="status_id" selected="{status_id}" type="combo">
+            <i:value type="orm">
+                <i:class>ModelCriteriaFetcher</i:class>
+                <i:method name="getDataForComboWidget">
+                    <i:param name="does_not_matter">afCrmStatus</i:param>
+                </i:method>
+            </i:value>
+            <i:help>Status of activity</i:help>
+            <i:validator name="immValidatorRequired"/>
+        </i:field>
+        <i:field label="Created by" name="created_by" selected="{created_by}" type="combo">
+            <i:value type="orm">
+                <i:class>ModelCriteriaFetcher</i:class>
+                <i:method name="getDataForComboWidget">
+                    <i:param name="does_not_matter">afGuardUser</i:param>
+                </i:method>
+            </i:value>
+            <i:help>The user who created this activity</i:help>
+            <i:validator name="immValidatorRequired"/>
+        </i:field>
+        <i:field label="Description" name="description" type="textarea" value="{description}">
+            <i:help>A brief description</i:help>
+        </i:field>
+        <i:field label="Due at" name="due_at" type="datetime" value="{due_at}">
+            <i:help>Expiration date</i:help>
+        </i:field>
+    </i:fields>
+	<i:description><![CDATA[This is an example of a bit more advanced form (edit view). It uses different kind of fields: input, combo, textarea and date selector. The form also 
+	features a field-set, and therefore it is an example of field grouping too.<br><a href="/studio#widget#frontend/forms/variousFields" target="_blank">Open in Studio</a>]]></i:description>
+    <i:grouping>
+        <i:set title="Activity Information">
+            <i:ref to="subject"/>
+            <i:ref to="account_id"/>
+            <i:ref to="contact_id"/>
+            <i:ref to="status_id"/>
+            <i:ref to="created_by"/>
+            <i:ref to="description"/>
+            <i:ref to="due_at"/>
+        </i:set>
+    </i:grouping>
+</i:view>

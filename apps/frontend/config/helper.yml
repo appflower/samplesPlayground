@@ -11,57 +11,57 @@ menu:
         item21:
           attributes:
             label: 'Basic Form'
-            url: /afCrmStatus/editStatus
+            url: /forms/basicForm
             icon: /images/famfamfam/bullet_blue.png
         item19:
           attributes:
             label: 'Various forms fields'
-            url: /afCrmActivity/editActivity
+            url: /forms/variousFields
             icon: /images/famfamfam/bullet_blue.png
         item2:
           attributes:
             label: 'Form with field-set'
-            url: /product/edit
+            url: /forms/fieldSets
             icon: /images/famfamfam/bullet_blue.png
         item3:
           attributes:
             label: 'Form with tabs'
-            url: /product/edit
+            url: /forms/tabs
             icon: /images/famfamfam/bullet_blue.png
         item4:
           attributes:
             label: 'Arrangement of fields'
-            url: /afCrmContacts/editContact
+            url: /forms/floatedForm
             icon: /images/famfamfam/bullet_blue.png
         item5:
           attributes:
             label: 'One-to-Many relation'
-            url: /afCrmContacts/editContact
+            url: /forms/oneToMany
             icon: /images/famfamfam/bullet_blue.png
         item6:
           attributes:
             label: 'Many-to-Many relation'
-            url: /afGuardGroup/editGroup
+            url: /forms/manyToMany
             icon: /images/famfamfam/bullet_blue.png
         item7:
           attributes:
             label: 'Static combo field'
-            url: /test/staticcombo
+            url: /forms/staticCombo
             icon: /images/famfamfam/bullet_blue.png
         item23:
           attributes:
             label: 'File Upload'
-            url: /product/edit
+            url: /forms/upload
             icon: /images/famfamfam/bullet_blue.png
         item24:
           attributes:
             label: 'Combo with quick add'
-            url: /test/combonew
+            url: /forms/comboNew
             icon: /images/famfamfam/bullet_blue.png
         item25:
           attributes:
             label: 'Form validation'
-            url: /test/validations
+            url: /forms/validations
             icon: /images/famfamfam/bullet_blue.png
     item8:
       attributes:

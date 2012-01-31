@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<i:view xmlns:i="http://www.appflower.com/schema/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="edit" xsi:schemaLocation="http://www.appflower.com/schema/appflower.xsd">
+    <i:title><![CDATA[Status Details]]></i:title>
+    <i:datasource type="orm">
+        <i:class>afCrmStatusPeer</i:class>
+        <i:method name="retrieveByPk">
+            <i:param name="id">{id}</i:param>
+        </i:method>
+    </i:datasource>
+    <i:fields url="forms/basicForm?id={id}">
+        <i:field label="Name" name="name" value="{name}">
+            <i:help>Status name</i:help>
+            <i:validator name="immValidatorRequired"/>
+        </i:field>
+        <i:field label="Description" name="description" type="textarea" value="{description}">
+            <i:help>A brief description</i:help>
+        </i:field>
+    </i:fields>
+	<i:description><![CDATA[This is an example of a very basic from (edit view). It has only 2 commonly used fields: an input and a textarea. It comes with some basic input validation too.<br><a href="/studio#widget#frontend/forms/basicForm" target="_blank">Open in Studio</a>]]></i:description>
+    <i:grouping>
+        <i:set title="Status Information">
+            <i:ref to="name"/>
+            <i:ref to="description"/>
+        </i:set>
+    </i:grouping>
+</i:view>

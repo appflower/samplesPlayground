@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<i:view xmlns:i="http://www.appflower.com/schema/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="edit" xsi:schemaLocation="http://www.appflower.com/schema/appflower.xsd">
+    <i:title><![CDATA[Contact Details]]></i:title>
+    <i:datasource type="orm">
+        <i:class>afCrmContactPeer</i:class>
+        <i:method name="retrieveByPk">
+            <i:param name="id">{id}</i:param>
+        </i:method>
+    </i:datasource>
+    <i:fields url="forms/floatedForm?id={id}">
+        <i:field label="Company" name="account_id" selected="{account_id}" type="combo">
+            <i:value type="orm">
+                <i:class>ModelCriteriaFetcher</i:class>
+                <i:method name="getDataForComboWidget">
+                    <i:param name="does_not_matter">afCrmAccount</i:param>
+                </i:method>
+            </i:value>
+            <i:help>The related partner</i:help>
+            <i:validator name="immValidatorRequired"/>
+        </i:field>
+        <i:field label="First Name" name="first_name" value="{first_name}">
+            <i:help>Given name</i:help>
+            <i:validator name="immValidatorRequired"/>
+        </i:field>
+        <i:field label="Last Name" name="last_name" value="{last_name}">
+            <i:help>Surname</i:help>
+            <i:validator name="immValidatorRequired"/>
+        </i:field>
+        <i:field label="Title" name="title" value="{title}">
+            <i:help>Title</i:help>
+            <i:validator name="immValidatorRequired"/>
+        </i:field>
+        <i:field label="E-mail" name="email" value="{email}">
+            <i:help>A valid email address</i:help>
+            <i:validator name="immValidatorRequired"/>
+        </i:field>
+        <i:field label="Work Phone" name="phone_work" value="{phone_work}">
+            <i:help>Land line number</i:help>
+        </i:field>
+        <i:field label="Cell Phone" name="phone_mobile" value="{phone_mobile}">
+            <i:help>Mobile phone number</i:help>
+        </i:field>
+        <i:field label="Skype ID" name="skype" value="{skype}">
+            <i:help>Skype name</i:help>
+        </i:field>
+        <i:field label="MSN" name="msn" value="{msn}">
+            <i:help>MSN id</i:help>
+        </i:field>
+        <i:field label="Address" name="address_line1" value="{address_line1}">
+            <i:help>Street address</i:help>
+        </i:field>
+        <i:field label="Address" name="address_line2" value="{address_line2}">
+            <i:help>Street address continued</i:help>
+        </i:field>
+        <i:field label="City" name="city" value="{city}">
+            <i:help>City of origin</i:help>
+        </i:field>
+        <i:field label="Zipcode" name="zipcode" value="{zipcode}">
+            <i:help>Zipcode</i:help>
+        </i:field>
+        <i:field label="State" name="state" value="{state}">
+            <i:help>Name of state </i:help>
+        </i:field>
+        <i:field label="Country" name="country" value="{country}">
+            <i:help>Country of origin</i:help>
+        </i:field>
+    </i:fields>
+	<i:description><![CDATA[Another example of edit view. In this case, form fields are aligned horizontally, in multiple columns. The example shows how to create such forms.
+	It's also an example of one-to-many relations and rendering of such foreign keys (see the "Company" field).<br><a href="/studio#widget#frontend/forms/floatedForm" target="_blank">Open in Studio</a>]]></i:description>
+    
+    <i:grouping title="Contact Person Information">
+        <i:set float="true" title="Contact Person Information">
+            <i:ref to="account_id"/>
+            <i:ref break="false" to="first_name"/>
+            <i:ref break="true" to="last_name"/>
+            <i:ref break="false" to="title"/>
+            <i:ref break="false" to="email"/>
+            <i:ref break="true" to="phone_work"/>
+            <i:ref to="phone_mobile"/>
+            <i:ref break="false" to="skype"/>
+            <i:ref break="true" to="msn"/>
+            <i:ref break="false" to="address_line1"/>
+            <i:ref break="false" to="address_line2"/>
+            <i:ref break="true" to="city"/>
+            <i:ref break="false" to="zipcode"/>
+            <i:ref break="false" to="state"/>
+            <i:ref to="country"/>
+        </i:set>
+    </i:grouping>
+</i:view>
