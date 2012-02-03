@@ -55,8 +55,7 @@
         <i:field name="grid" type="include" url="grids/bgColorsList" label="Included Grid Widget" state="editable" style="css">
          </i:field>
     </i:fields>
-    <i:description><![CDATA[This is an example of a bit more advanced form (edit view). It uses different kind of fields: input, combo, textarea and date selector. The form also 
-	features a field-set, and therefore it is an example of field grouping too.<br><a href="/studio#widget#frontend/forms/variousFields" target="_blank">Open in Studio</a>]]></i:description>
+    <i:description><![CDATA[This is an example of a bit more advanced form (edit view). It uses different kind of fields: input, combo, textarea, date selector, date&time selector, password, checkboxes, file, static field, multicombo, radio group, double multi combo and include field. The form also features a field-set, and therefore it is an example of field grouping too.<br><a href="/studio#widget#frontend/forms/variousFields" target="_blank">Open in Studio</a>]]></i:description>
     <i:grouping>
         <i:set title="Fieldset A">
             <i:ref to="input"/>
