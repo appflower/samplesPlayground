@@ -2,7 +2,7 @@ homepage:
   url: /
   param:
     module: pages
-    action: md
+    action: dashboard
 login:
   url: /login
   param:

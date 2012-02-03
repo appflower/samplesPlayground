@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <i:view xmlns:i="http://www.appflower.com/schema/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="layout" xsi:schemaLocation="http://www.appflower.com/schema/appflower.xsd">
-    <i:title><![CDATA[dashboard]]></i:title>
+    <i:title><![CDATA[Dashboard]]></i:title>
     <i:area layout="2" type="content">
-        <i:tab title="afCRM">
+        <i:tab title="afCRM first tab">
             <i:component column="0" module="afCrmAccounts" name="listAccounts"/>
             <i:component column="1" module="afCrmContacts" name="listContacts"/>
-            <i:component column="1" module="afCrmDeals" name="listDeals"/>
+            <i:component column="0" module="afCrmDeals" name="listDeals"/>
+        </i:tab>
+        <i:tab title="afCRM second tab">
             <i:component column="0" module="afCrmActivity" name="listActivities"/>
-            <i:component column="0" module="afCrmStatus" name="listStatuses"/>
+            <i:component column="1" module="afCrmStatus" name="listStatuses"/>
         </i:tab>
     </i:area>
 	<i:description><![CDATA[Another layout example. This one uses tabs and renders widgets in these. A tab can be split into several columns and may hold any number of widgets. 
