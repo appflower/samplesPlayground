@@ -1,78 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <i:view xmlns:i="http://www.appflower.com/schema/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="edit" xsi:schemaLocation="http://www.appflower.com/schema/appflower.xsd">
-    <i:title><![CDATA[Activity Details]]></i:title>
-    <i:datasource type="orm">
-        <i:class>afCrmActivityPeer</i:class>
-        <i:method name="retrieveByPk">
-            <i:param name="id">{id}</i:param>
-        </i:method>
-    </i:datasource>
-    <i:fields url="forms/variousFields?id={id}">
-        <i:field label="Subject" name="subject" value="{subject}">
+    <i:title><![CDATA[Various Fields]]></i:title>
+    <i:fields url="forms/variousFields">
+        <i:field label="Input" name="input" value="">
             <i:help>What is this activity about?</i:help>
             <i:validator name="immValidatorRequired"/>
             <i:validator name="sfValidatorString">
                 <i:param name="min_length">2</i:param>
             </i:validator>
         </i:field>
-        <i:field label="Account" name="account_id" selected="{account_id}" type="combo">
+        <i:field label="Combobox" name="combobox_id" selected="" type="combo">
             <i:value type="orm">
                 <i:class>ModelCriteriaFetcher</i:class>
                 <i:method name="getDataForComboWidget">
                     <i:param name="does_not_matter">afCrmAccount</i:param>
                 </i:method>
             </i:value>
-            <i:help>The related partner</i:help>
             <i:validator name="immValidatorRequired"/>
         </i:field>
-        <i:field label="Contact" name="contact_id" selected="{contact_id}" type="combo">
+        <i:field label="Textarea" name="textarea" type="textarea" value="">
+            <i:help>A brief description of textarea</i:help>
+        </i:field>
+        <i:field label="Date" name="date" type="date" value="">
+            <i:help>Date help</i:help>
+        </i:field>
+        <i:field label="Date &amp; time" name="datetime" type="datetime" value="">
+            <i:help>Date &amp; time help</i:help>
+        </i:field>
+        <i:field label="Password" name="password" type="password" value=""/>
+        <i:field label="Checkbox One" name="checkbox1" type="checkbox" value="1"/>
+        <i:field label="Checkbox Two" name="checkbox2" type="checkbox" value="2"/>
+        <i:field label="File" name="file" type="file" value=""/>
+        <i:field label="Static" name="static" type="static" value="static test"/>
+        <i:field label="MultiCombo" name="mc" type="multicombo">
             <i:value type="orm">
                 <i:class>ModelCriteriaFetcher</i:class>
-                <i:method name="getDataForComboWidget">
-                    <i:param name="does_not_matter">afCrmContact</i:param>
+                <i:method name="getDataForComboWidget" type="instance">
+                    <i:param name="anyname">afCrmAccount</i:param>
                 </i:method>
             </i:value>
-            <i:help>The related contact person</i:help>
-            <i:validator name="immValidatorRequired"/>
         </i:field>
-        <i:field label="Status" name="status_id" selected="{status_id}" type="combo">
+        <i:radiogroup label="Radio Group" name="rc">
+            <i:field label="Radio v1" name="radio1" type="radio" value="1" checked="true"/>
+            <i:field label="Radio v2" name="radio2" type="radio" value="2"/>
+        </i:radiogroup>
+        <i:field label="Double MultiCombo" name="dmc" type="doublemulticombo">
             <i:value type="orm">
-                <i:class>ModelCriteriaFetcher</i:class>
-                <i:method name="getDataForComboWidget">
-                    <i:param name="does_not_matter">afCrmStatus</i:param>
+                <i:class>afGuardGroupPermissionPeer</i:class>
+                <i:method name="getGroupPermissions">
+                    <i:param name="id">1</i:param>
                 </i:method>
             </i:value>
-            <i:help>Status of activity</i:help>
-            <i:validator name="immValidatorRequired"/>
         </i:field>
-        <i:field label="Created by" name="created_by" selected="{created_by}" type="combo">
-            <i:value type="orm">
-                <i:class>ModelCriteriaFetcher</i:class>
-                <i:method name="getDataForComboWidget">
-                    <i:param name="does_not_matter">afGuardUser</i:param>
-                </i:method>
-            </i:value>
-            <i:help>The user who created this activity</i:help>
-            <i:validator name="immValidatorRequired"/>
-        </i:field>
-        <i:field label="Description" name="description" type="textarea" value="{description}">
-            <i:help>A brief description</i:help>
-        </i:field>
-        <i:field label="Due at" name="due_at" type="datetime" value="{due_at}">
-            <i:help>Expiration date</i:help>
-        </i:field>
+        <i:field name="grid" type="include" url="grids/bgColorsList" label="Included Grid Widget" state="editable" style="css">
+         </i:field>
     </i:fields>
-	<i:description><![CDATA[This is an example of a bit more advanced form (edit view). It uses different kind of fields: input, combo, textarea and date selector. The form also 
+    <i:description><![CDATA[This is an example of a bit more advanced form (edit view). It uses different kind of fields: input, combo, textarea and date selector. The form also 
 	features a field-set, and therefore it is an example of field grouping too.<br><a href="/studio#widget#frontend/forms/variousFields" target="_blank">Open in Studio</a>]]></i:description>
     <i:grouping>
-        <i:set title="Activity Information">
-            <i:ref to="subject"/>
-            <i:ref to="account_id"/>
-            <i:ref to="contact_id"/>
-            <i:ref to="status_id"/>
-            <i:ref to="created_by"/>
-            <i:ref to="description"/>
-            <i:ref to="due_at"/>
+        <i:set title="Fieldset A">
+            <i:ref to="input"/>
+            <i:ref to="combobox_id"/>
+            <i:ref to="textarea"/>
+            <i:ref to="date"/>
+            <i:ref to="datetime"/>
+            <i:ref to="password"/>
+            <i:ref to="checkbox1"/>
+            <i:ref to="checkbox2"/>
+        </i:set>
+        
+        <i:set title="Radio Group Fieldset">
+            <i:ref to="radio1"/>
+            <i:ref to="radio2"/>
         </i:set>
     </i:grouping>
 </i:view>

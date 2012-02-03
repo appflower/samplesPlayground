@@ -2,6 +2,10 @@
 /**
  * Generated action edit class
  */
-class variousFieldsAction extends simpleWidgetEditAction
+class variousFieldsAction extends sfAction
 {
+    public function execute($request)
+    {
+        
+    }
 }
