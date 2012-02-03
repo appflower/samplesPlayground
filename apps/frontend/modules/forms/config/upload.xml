@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <i:view xmlns:i="http://www.appflower.com/schema/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="edit" xsi:schemaLocation="http://www.appflower.com/schema/appflower.xsd">
-    <i:title><![CDATA[Add / Edit]]></i:title>
+    <i:title><![CDATA[File Upload]]></i:title>
     <i:datasource type="orm">
         <i:class>productPeer</i:class>
         <i:method name="retrieveByPk">
@@ -41,17 +41,13 @@
         <i:field label="Image" name="image" type="file">
 	     </i:field>
     </i:fields>
-    <i:description><![CDATA[This is an example of form field grouping. The form implements two field-sets, and renders them as tabs. 
-	This allows easy navigation and makes the form well organized. This also an example of file uploads (see the second tab). <br><a href="/studio#widget#frontend/forms/upload" target="_blank">Open in Studio</a>]]></i:description>
+    <i:description><![CDATA[This is an example of file uploading. <br><a href="/studio#widget#frontend/forms/upload" target="_blank">Open in Studio</a>]]></i:description>
     
     <i:grouping>
-        <i:set title="Product Information" tabtitle="Product Information">
+        <i:set title="Product Information">
             <i:ref to="name"/>
             <i:ref to="price"/>
             <i:ref to="quantity"/>
-        </i:set>
-
-        <i:set title="Product Image" tabtitle="Product Image">
             <i:ref to="static_image"/>
             <i:ref to="image"/>
         </i:set>
