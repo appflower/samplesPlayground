@@ -1,0 +1,9 @@
+afGuardPermission:
+  admin:
+    name: 'Admin'
+    
+afGuardGroup:
+  roleA:
+    name: 'Developer'
+  roleB:
+    name: 'Manager'
