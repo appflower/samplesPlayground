@@ -104,6 +104,11 @@ menu:
             label: 'List with background colors'
             url: /grids/bgColorsList
             icon: /images/famfamfam/bullet_blue.png
+        item23:
+          attributes:
+            label: 'Arithmetic list'
+            url: /grids/arithmeticList
+            icon: /images/famfamfam/bullet_blue.png
     item14:
       attributes:
         label: Layouts

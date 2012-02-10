@@ -22,5 +22,10 @@ class product extends Baseproduct {
         else 
        	return '';
     }
+    
+    public function getSum()
+    {
+        return $this->getPrice() * $this->getQuantity();
+    }
 
 } // product
