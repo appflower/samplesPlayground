@@ -20,4 +20,5 @@
     <i:actions>
         <i:action iconCls="icon-plus" name="Add new product" popup="false" url="/product/edit"/>
     </i:actions>
+    <i:description><![CDATA[This example displays a grid with simple arithmetic Sum column, which multiplies the Unit Price with Quantity.<br><a href="/studio#widget#frontend/grids/arithmeticList" target="_blank">Open in Studio</a>]]></i:description>
 </i:view>
