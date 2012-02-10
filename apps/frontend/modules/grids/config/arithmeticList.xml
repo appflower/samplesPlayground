@@ -20,5 +20,5 @@
     <i:actions>
         <i:action iconCls="icon-plus" name="Add new product" popup="false" url="/product/edit"/>
     </i:actions>
-    <i:description><![CDATA[This example displays a grid with simple arithmetic multiply method on Total column, which multiplies the Unit Price with Quantity.<br><a href="/studio#widget#frontend/grids/arithmeticList" target="_blank">Open in Studio</a>]]></i:description>
+    <i:description><![CDATA[This example displays a grid with simple arithmetic multiply method on Total column, which multiplies the Unit Price with Quantity. Total column is calculated for each row, inside the <a href="/studio#file#lib/model/product.php" target="_blank">product Model</a>, through getTotal() method.<br><a href="/studio#widget#frontend/grids/arithmeticList" target="_blank">Open in Studio</a>]]></i:description>
 </i:view>
