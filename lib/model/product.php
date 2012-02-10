@@ -23,7 +23,7 @@ class product extends Baseproduct {
        	return '';
     }
     
-    public function getSum()
+    public function getTotal()
     {
         return $this->getPrice() * $this->getQuantity();
     }

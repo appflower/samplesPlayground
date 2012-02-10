@@ -11,7 +11,7 @@
         <i:column filter="[type:string,dataIndex:order.name]" label="Product" name="name"/>
         <i:column filter="[type:numeric,dataIndex:order.price]" label="Unit Price" name="price"/>
         <i:column filter="[type:numeric,dataIndex:order.quantity]" label="Quantity" name="quantity"/>
-        <i:column filter="[type:numeric]" label="Sum" name="sum"/>
+        <i:column filter="[type:numeric]" label="Total" name="total"/>
     </i:fields>
     <i:rowactions>
         <i:action iconCls="icon-edit" name="edit" url="/product/edit"/>
@@ -20,5 +20,5 @@
     <i:actions>
         <i:action iconCls="icon-plus" name="Add new product" popup="false" url="/product/edit"/>
     </i:actions>
-    <i:description><![CDATA[This example displays a grid with simple arithmetic Sum column, which multiplies the Unit Price with Quantity.<br><a href="/studio#widget#frontend/grids/arithmeticList" target="_blank">Open in Studio</a>]]></i:description>
+    <i:description><![CDATA[This example displays a grid with simple arithmetic multiply method on Total column, which multiplies the Unit Price with Quantity.<br><a href="/studio#widget#frontend/grids/arithmeticList" target="_blank">Open in Studio</a>]]></i:description>
 </i:view>
