@@ -41,7 +41,11 @@
         <i:field label="Image" name="image" type="file">
 	     </i:field>
     </i:fields>
-    <i:description><![CDATA[This is an example of file uploading. <br><a href="/studio#widget#frontend/forms/upload" target="_blank">Open in Studio</a>]]></i:description>
+    <i:description><![CDATA[This is an example of file uploading. <br> Here are the files used for this widget:<br>
+    - <a href="/studio#file#apps/frontend/modules/forms/actions/uploadAction.class.php" target="_blank">./apps/frontend/modules/forms/actions/uploadAction.class.php</a> - php controller<br>
+    - <a href="/studio#file#apps/frontend/modules/forms/config/upload.xml" target="_blank">./apps/frontend/modules/forms/config/upload.xml</a> - xml configuration<br>
+    - <a href="/studio#file#lib/model/product.php" target="_blank">./lib/model/product.php</a> - php class for product model<br>
+    <br><a href="/studio#widget#frontend/forms/upload" target="_blank">Open widget in Studio's Widget Designer</a>]]></i:description>
     
     <i:grouping>
         <i:set title="Product Information">
