@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i:view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.appflower.com /schema/appflower.xsd"
+xmlns:i="http://www.appflower.com/schema/" type="edit">
+
+<i:title>The Agreement</i:title>
+
+<i:params>
+	<i:param name="wizard_submit">false</i:param>
+</i:params>
+
+<i:fields>
+	<i:field name="eula" label="License" type="static" style="height:200px;overflow-y:auto;">
+		<i:value type="orm">
+			<i:class>Util</i:class>
+			<i:method name="readEula" />
+		</i:value>
+		<i:help>Please read the terms of this agreement carefully</i:help>
+	</i:field>
+	
+	<i:field name="accepted" label="Accept" type="checkbox" state="editable" style="css" >
+		<i:help>I accept the terms of the EULA</i:help>
+	</i:field>
+</i:fields>
+
+<i:grouping>
+	<i:set title="EULA">
+		<i:ref to="eula" />
+		<i:ref to="accepted" />
+	</i:set>
+</i:grouping>
+
+</i:view>
