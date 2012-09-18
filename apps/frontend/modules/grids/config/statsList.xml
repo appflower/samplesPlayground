@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<i:view xmlns:i="http://www.appflower.com/schema/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="list" xsi:schemaLocation="http://www.appflower.com/schema/appflower.xsd">
+    <i:title><![CDATA[Statistics]]></i:title>
+    <i:datasource type="static">
+        <i:class>productPeer</i:class>
+        <i:method name="getStats" type="static"/>
+    </i:datasource>
+    <i:fields tree="true">
+        <i:column label="Name" name="name"/>
+        <i:column label="Total Sold Items" name="items"/>
+        <i:column label="Total Sold Value" name="price"/>
+    </i:fields>
+</i:view>
