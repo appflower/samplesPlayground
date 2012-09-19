@@ -109,6 +109,11 @@ menu:
             label: 'Arithmetic list'
             url: /grids/arithmeticList
             icon: /images/famfamfam/bullet_blue.png
+        item24:
+          attributes:
+            label: 'Tree list'
+            url: /grids/statsList
+            icon: /images/famfamfam/bullet_blue.png
     item14:
       attributes:
         label: Layouts
