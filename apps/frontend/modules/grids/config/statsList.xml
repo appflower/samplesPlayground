@@ -10,5 +10,5 @@
         <i:column label="Total Sold Items" name="items"/>
         <i:column label="Total Sold Value" name="price"/>
     </i:fields>
-    <i:description><![CDATA[The example displays a tree grid widget.<br><a href="/studio#widget#frontend/grids/statsList" target="_blank">Open in Studio</a>]]></i:description>
+    <i:description><![CDATA[The example displays a tree grid widget.<br>Data is processed inside the <a href="/studio#file#lib/model/productPeer.php" target="_blank">product Peer class</a>, through getStats() method.<br><a href="/studio#widget#frontend/grids/statsList" target="_blank">Open in Studio</a>]]></i:description>
 </i:view>
