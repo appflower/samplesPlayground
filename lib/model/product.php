@@ -27,5 +27,10 @@ class product extends Baseproduct {
     {
         return $this->getPrice() * $this->getQuantity();
     }
+    
+    public function getDetail()
+    {
+        return $this->getHtmlImage().'<br>Price: '.$this->getPrice().'<br>Quantity: '.$this->getQuantity();
+    }
 
 } // product
