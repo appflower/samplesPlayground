@@ -114,6 +114,11 @@ menu:
             label: 'Tree list'
             url: /grids/statsList
             icon: /images/famfamfam/bullet_blue.png
+        item25:
+          attributes:
+            label: 'Expand list'
+            url: /grids/expandList
+            icon: /images/famfamfam/bullet_blue.png
     item14:
       attributes:
         label: Layouts
