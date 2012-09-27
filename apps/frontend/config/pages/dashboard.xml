@@ -3,7 +3,7 @@
     <i:title><![CDATA[Dashboard]]></i:title>
     <i:area layout="2" type="content">
         <i:tab title="afCRM first tab">
-            <i:component column="0" module="afCrmAccounts" name="listAccounts"/>
+            <i:component column="0" module="afCrmAccounts" name="listAccounts" refresh="5"/>
             <i:component column="1" module="afCrmContacts" name="listContacts"/>
             <i:component column="0" module="afCrmDeals" name="listDeals"/>
         </i:tab>

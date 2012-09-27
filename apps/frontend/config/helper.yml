@@ -119,6 +119,11 @@ menu:
             label: 'Expand list'
             url: /grids/expandList
             icon: /images/famfamfam/bullet_blue.png
+        item26:
+          attributes:
+            label: 'Reload list'
+            url: /grids/reloadList
+            icon: /images/famfamfam/bullet_blue.png
     item14:
       attributes:
         label: Layouts

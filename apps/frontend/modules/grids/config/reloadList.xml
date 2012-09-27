@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<i:view xmlns:i="http://www.appflower.com/schema/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" type="list" xsi:schemaLocation="http://www.appflower.com/schema/appflower.xsd">
+    <i:title><![CDATA[Reload List]]></i:title>
+    <i:datasource modelName="product" type="orm">
+        <i:class>ModelCriteriaFetcher</i:class>
+        <i:method name="getDataForList">
+            <i:param name="modelName">product</i:param>
+        </i:method>
+    </i:datasource>
+    <i:fields remoteFilter="true" remoteSort="true">
+        <i:column filter="[type:string,dataIndex:order.name]" label="Name" name="name"/>
+        <i:column filter="[type:numeric,dataIndex:order.price]" label="Price" name="price"/>
+        <i:column filter="[type:numeric,dataIndex:order.quantity]" label="Quantity" name="quantity"/>
+        <i:column label="Image" name="html_image"/>
+    </i:fields>
+    <i:rowactions>
+        <i:action iconCls="icon-edit" name="edit" url="/forms/reload"/>
+    </i:rowactions>
+    <i:actions>
+        <i:action iconCls="icon-plus" name="Add new product" popup="false" url="/forms/reload"/>
+    </i:actions>
+     <i:description><![CDATA[This grid is an example of how to reload the list after saving data in a form.<br/><a href="/studio#widget#frontend/grids/reloadList" target="_blank">Open in Studio</a><br>Here is the <a href="/studio#widget#frontend/forms/reload" target="_blank">form widget</a> and it's <a href="/studio#file#apps/frontend/modules/forms/actions/reloadAction.class.php" target="_blank">action</a>.]]></i:description>
+
+</i:view>
