@@ -26,6 +26,10 @@ class reloadAction extends sfAction
   		}
   		$product->save();
 
+  		
+  		/**
+  		 * this is the code responsible for reloading the list after for submit
+  		 */
   		return $this->renderText(
   			afResponseHelper::create()->success(true)->executeAfter('Ext.getCmp("/grids/reloadList").findByType("grid")[0].getStore().reload()')->asJson()
   		);
